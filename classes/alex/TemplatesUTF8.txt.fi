@@ -1,0 +1,23 @@
+﻿#1~e~O~Opinion~-~contra~Olen eri mieltä väitteestä~~#
+#2~e~O~Opinion~+~pro~Olen samaa mieltä väitteestä~~#
+#3~e~O~Opinion~?~neutral~Muutin mielipidettäni väitteestä~~#
+#4~e~O~Opinion~?~neutral~Oletko samaa vai eri mieltä väitteestä~~#
+#5~a~E~Explore and Deepen~?~neutral~Väitettä~ voisi selventää sanomalla, että~#
+#6~e~E~Explore and Deepen~?~neutral~Voitko selventää väitettä~~#
+#7~a~E~Explore and Deepen~X~neutral~Perun väitteen~ koska~#
+#8~c~E~Explore and Deepen~?~neutral~Väite~ liittyy väitteeseen~ koska#
+#9~c~E~Explore and Deepen~?~neutral~Väite~ ja väite~ eivät sovi yhteen, koska#
+#10~a~E~Explore and Deepen~+~pro~Perustelen väitettä~ seuraavalla esimerkillä:~#
+#11~e~E~Explore and Deepen~?~neutral~Voitko perustella esimerkin avulla väitteen~#
+#12~a~A~Arguing~+~pro~Perustelen väitettä~sanomalla, että~#
+#13~a~A~Arguing~-~contra~Vasta-argumentti väitteelle~ on, että~#
+#14~e~A~Arguing~?~neutral~Voisitko perustella väitteen~~#
+#15~e~A~Arguing~?~neutral~Voisitko esittää vasta-argumentin väitteelle~~#
+#16~d~D~Social~?~neutral~Moi!~~#
+#17~d~D~Social~?~neutral~Heippa!~~#
+#18~d~D~InteractionManagement~?~neutral~Minun vuoroni~~#
+#19~d~D~InteractionManagement~?~neutral~Sinun vuorosi~~#
+#20~d~D~InteractionManagement~?~neutral~Pidä kiirettä!~~#
+#21~d~D~InteractionManagement~?~neutral~Odota hetki!~~#
+#22~e~D~TaskManagement~?~neutral~Haluaisin puhua väitteestä~~#
+#23~d~D~TaskManagement~?~neutral~Ymmärrän, mitä tarkoitat.~~#

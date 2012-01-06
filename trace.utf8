@@ -1,0 +1,55 @@
+<event mark="http test step 1" user="Greg" room="Hall"><time><date>1178693372952</date></time><server><connection state="new"><host>127.0.0.1</host><identity user="Greg"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event><time><date>1178693372974</date></time><control><info>Greg nest plus des notres</info></control></event>
+<event mark="http test step 1" user="Greg" room="Hall"><time><date>1178693399001</date></time><server><connection state="new"><host>127.0.0.1</host><identity user="Greg"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="Greg" room="Hall"><time><date>1178693399040</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="Greg" room="Hall"><time><date>1178693414153</date></time><server><syn/></server></event>
+<event><time><date>1178693430348</date></time><control><info>Greg nest plus des notres</info></control></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693477695</date></time><server><connection state="new"><host>127.0.0.1</host><identity user="G"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693477871</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693487162</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693496553</date></time><textboard><text lang="fr" caret="4">Du t</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693497525</date></time><textboard><text lang="fr" caret="11">Du texte da</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693498525</date></time><textboard><text lang="fr" caret="18">Du texte dans le t</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693499523</date></time><textboard><text lang="fr" caret="24">Du texte dans le textboa</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693500524</date></time><textboard><text lang="fr" caret="26">Du texte dans le textboard</text></textboard></event>
+<event mark="http test step 1" user="H" room="Hall"><time><date>1178693529605</date></time><server><connection state="new"><host>127.0.0.1</host><identity user="H"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="H" room="Hall"><time><date>1178693530221</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="H" room="Hall"><time><date>1178693535857</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="H" room="Hall"><time><date>1178693546714</date></time><textboard><text lang="fr" caret="26">Du texte dans le textboard</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693612534</date></time><textboard><text lang="fr" caret="29">Du texte dans le textboard ho</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693613534</date></time><textboard><text lang="fr" caret="33">Du texte dans le textboard hop j'</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693614535</date></time><textboard><text lang="fr" caret="38">Du texte dans le textboard hop j'écris</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693615536</date></time><textboard><text lang="fr" caret="43">Du texte dans le textboard hop j'écris enco</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693616545</date></time><textboard><text lang="fr" caret="45">Du texte dans le textboard hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="H" room="Hall"><time><date>1178693632721</date></time><textboard><text lang="fr" caret="45">Du texte dans le textboard hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="H" room="Hall"><time><date>1178693633721</date></time><textboard><text lang="fr" caret="45">Du texte dans le textboard hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="H" room="Hall"><time><date>1178693634725</date></time><textboard><text lang="fr" caret="45">Du texte dans le textboard hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="H" room="Hall"><time><date>1178693635720</date></time><textboard><text lang="fr" caret="45">Du texte dans le textboard hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="H" room="Hall"><time><date>1178693636721</date></time><textboard><text lang="fr" caret="45">Du texte dans le textboard hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="H" room="Hall"><time><date>1178693645721</date></time><textboard><text lang="fr" caret="27">Du texte dans le textboard  hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="H" room="Hall"><time><date>1178693646723</date></time><textboard><text lang="fr" caret="34">Du texte dans le textboard bonjour hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693656549</date></time><textboard><text lang="fr" caret="53">Du texte dans le textboard bonjour hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693657550</date></time><textboard><text lang="fr" caret="53">Du texte dans le textboard bonjour hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693665552</date></time><textboard><text lang="fr" caret="35">Du texte dans le textboard bonjourh hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693666552</date></time><textboard><text lang="fr" caret="32">Du texte dans le textboard bonjo hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693667553</date></time><textboard><text lang="fr" caret="31">Du texte dans le textboard bonj hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693668554</date></time><textboard><text lang="fr" caret="31">Du texte dans le textboard bonn hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693669554</date></time><textboard><text lang="fr" caret="37">Du texte dans le textboard bonne nuit hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693681556</date></time><textboard><text lang="fr" caret="36">Du texte dans le textboard bonne nuihop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693682556</date></time><textboard><text lang="fr" caret="35">Du texte dans le textboard bonne nuhop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693683557</date></time><textboard><text lang="fr" caret="33">Du texte dans le textboard bonne hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693684557</date></time><textboard><text lang="fr" caret="31">Du texte dans le textboard bonnhop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693685559</date></time><textboard><text lang="fr" caret="29">Du texte dans le textboard bohop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="H" room="Hall"><time><date>1178693685734</date></time><textboard><text lang="fr" caret="29">Du texte dans le textboard bohop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693686564</date></time><textboard><text lang="fr" caret="28">Du texte dans le textboard bhop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693688561</date></time><textboard><text lang="fr" caret="27">Du texte dans le textboard hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="H" room="Hall"><time><date>1178693688735</date></time><textboard><text lang="fr" caret="27">Du texte dans le textboard hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="H" room="Hall"><time><date>1178693689735</date></time><textboard><text lang="fr" caret="31">Du texte dans le textboard hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693690569</date></time><textboard><text lang="fr" caret="32">Du texte dans le textboard bonnehop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693691562</date></time><textboard><text lang="fr" caret="37">Du texte dans le textboard bonne nuithop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693695562</date></time><textboard><text lang="fr" caret="38">Du texte dans le textboard bonne nuit hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="G" room="Hall"><time><date>1178693696563</date></time><textboard><text lang="fr" caret="38">Du texte dans le textboard bonne nuit hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="H" room="Hall"><time><date>1178693710738</date></time><textboard><text lang="fr" caret="42">Du texte dans le textboard bonne nuit hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="H" room="Hall"><time><date>1178693711739</date></time><textboard><text lang="fr" caret="42">Du texte dans le textboard bonne nuit hop j'écris encore</text></textboard></event>
+<event mark="http test step 1" user="H" room="Hall"><time><date>1178693715740</date></time><textboard><text lang="fr" caret="42">Du texte dans le textboard bonne nuit hop j'écris encore</text></textboard></event>
+<event><time><date>1178696733388</date></time><control><info>G nest plus des notres</info></control></event>

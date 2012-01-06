@@ -1,0 +1,252 @@
+package Sch;
+
+import java.net.*;
+import java.io.*;
+import java.awt.event.*;
+import java.awt.*;
+import Drew.Client.Util.*;
+import Sch.*;
+
+
+/**
+* Classe implémentant un Scheme conversationnel
+* Exemple d'utilisation:
+* @see    
+* @see   
+*/
+public class MiSc extends Frame
+                  implements ActionListener, CooperativeModule {
+
+  /**
+  * code <EM>unique</EM> representant les messages en provenance
+  * ou a destination de ce module
+  * en l'occurence <CODE>misc</CODE>
+  */
+  static final String CODE = "misc";
+
+  /**
+  * Recuper l'applet-mere
+  * @see Communication
+  */
+  public static Communication central_applet;
+
+  /**
+  * Champs
+  */
+    private TextArea  input;
+    private int ROWSIN = 10;
+    private int COLSIN = 100;
+    private TextArea  output;
+    private int ROWSOUT = 20;
+    private int COLSOUT = 100;
+
+    private Panel schPanel;
+    private Panel buttons;
+    private Button eval;
+    private Button clear;
+
+
+    public int maxtxtlng = 16000;
+
+  	/**
+  	* Constructeur de la fenetre 
+  	* @param    cdc instance de l'applet de communication
+  	* @see Communication
+  	*/
+  	public MiSc()
+  	{
+        	super("MiSc Interpreter");
+                
+  	}
+
+  	/**
+  	* Constructeur de la fenetre
+  	* @param    cdc instance de l'applet de communication
+  	* @see Communication
+  	*/
+  	public MiSc(Communication cdc)
+  	{
+        	this();
+		constructor(cdc);
+  	}
+
+  	/**
+  	* pour terminer la construction de la fenetre Class.newInstance()
+	* n'appelle que le contructeur par defaut de la classe.
+  	* @param    cdc instance de l'applet de communication
+  	* @see Communication
+	* @see Drew.Client.Util.CooperativeModule
+	* @see Drew.Client.TableauDeBord.Module
+  	*/
+	public void constructor(Communication cdc) 
+	{
+        	central_applet=cdc;
+
+	}
+
+        public static void send(String msg)
+        {
+            central_applet.envoiserveur(msg);
+        }
+
+
+  	/* implantation de l'interface CooperativeModule */
+
+  	public void init()
+	{
+        	// Mise en place des elements graphiques
+        	//----------------------------------------
+
+        setLayout (new BorderLayout());
+
+        schPanel = new Panel ();
+        schPanel.setLayout (new BorderLayout());
+        schPanel.setBackground(Color.white);
+
+        add (BorderLayout.CENTER, schPanel);
+
+        output = new TextArea ("",ROWSOUT,COLSOUT,
+                TextArea.SCROLLBARS_VERTICAL_ONLY);
+        output.setEditable (false);
+        schPanel.add (BorderLayout.NORTH, output);
+        output.setBackground(Color.white);
+
+        input = new TextArea ("",ROWSIN,COLSIN,
+                TextArea.SCROLLBARS_VERTICAL_ONLY);
+        schPanel.add (BorderLayout.CENTER, input);
+
+        buttons = new Panel();
+        buttons.setLayout (new FlowLayout());
+        buttons.setBackground(Color.white);
+        add (BorderLayout.SOUTH, buttons);
+
+        eval = new Button ("Eval");
+        buttons.add (eval);
+
+        clear = new Button ("Clear");
+        buttons.add (clear);
+
+        eval.addActionListener(this);
+        eval.setActionCommand("eval");
+        clear.addActionListener(this);
+        clear.setActionCommand("clear");
+
+
+/*
+*/
+
+		// on redimensionne et on affiche. 
+		pack();
+    		//setSize(new Dimension(600,600));
+                setSize(schPanel.getPreferredSize());
+    		show();
+
+        {
+            //System.err.println("J'initialise scheme");
+            String msg = Sch.schinit(1);
+            // System.err.println("Second initialisation de scheme");
+            //String msg = Sch.sinit();
+            //Sch.sinit();
+             System.err.println("Fin de l'initialisation");
+            output.append(msg+"\n");
+        }
+
+	}
+  
+    public void addText(String str) {
+        // Insertion de la chaine en sortie
+        output.append(str);
+        // Se termine-t-elle par "\n" ?
+        if (! str.endsWith("\n"))
+            output.append("\n");
+        // On positionne à la fin
+        output.setCaretPosition(0x3ffffff);
+        int pos = output.getCaretPosition();
+        if (pos > maxtxtlng)
+        {
+              output.replaceRange("(truncated)\n...", 0, pos-maxtxtlng);
+              output.setCaretPosition(0x3ffffff);
+        }
+    }
+
+
+
+   /**
+   *   Gestion des interactions
+   */
+   public void actionPerformed(ActionEvent evt)
+   {
+       String cmd = evt.getActionCommand();
+
+       if (cmd.equals("eval"))
+       {
+        // Read commands
+        String str = input.getText();
+        // Add commands to transcript
+        addText(str);
+
+        // Load the string in interpreter
+        Sch.load(str);
+        // Loop on code
+        Sch.loop();
+        // Get outputs
+        str = Sch.result();
+        // Put output in output text
+        addText(str);
+
+        // Reset input
+        input.setText ("");
+        // Ask for focus - doesn't work
+        input.requestFocus();
+
+
+       }
+       else
+       if (cmd.equals("clear"))
+       {
+        output.setText ("");
+
+       }
+   }
+
+
+        /**
+        * arret du module
+        */
+        public void stop()
+	{
+		if(isShowing()) {
+        		dispose();
+    		}
+	}
+
+        /**
+        * destruction du module
+        */
+        public void destroy() 
+	{
+		stop();
+	}
+  
+        /**
+        * Rend la chaine de caractere identifiant le module
+        */
+        public String getCode() 
+	{
+		return CODE;
+	}
+
+        /**
+        * Accepte les messages qui sont uniquement pour lui code == CODE
+        */
+        public boolean messageFilter(String code, String origine)
+        {
+                return code.equals( getCode() );
+        }
+
+        public void messageDeliver(String code, String origine, String msg) 
+	{
+		// changement de couleur
+	}
+}
+

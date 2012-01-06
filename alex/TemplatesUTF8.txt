@@ -1,0 +1,24 @@
+#1~e~O~Opinion~-~contra~I don't agree with statement~~#
+#2~e~O~Opinion~+~pro~I agree with statement~~#
+#3~e~O~Opinion~?~neutral~I changed my mind about~~#
+#4~e~O~Opinion~?~neutral~What is your opinion about statement~~#
+#5~a~E~Explore~?~neutral~I would like to clarify statement~ by saying~#
+#6~e~E~Explore~?~neutral~Could you clarify statement~~#
+#7~a~E~Explore~X~neutral~I retract statement~ because~#
+#8~c~E~Explore~?~neutral~Statement~ is related to statement~ because#
+#9~c~E~Explore~?~neutral~There is a problem between statement~ and statement~ because#
+#10~a~E~Explore~+~neutral~I would like to justify statement~ by saying~#
+#11~e~E~Explore~?~neutral~Could you justify statement~~#
+#12~a~A~arg~+~pro~I support statement~ because~#
+#13~a~A~arg~-~contra~I attack statement~ because~#
+#14~e~A~arg~?~neutral~Could you give an argument for statement~~#
+#15~e~A~arg~?~neutral~Could you give an argument against statement~~#
+#16~d~D~Social~?~neutral~Hello~~#
+#17~d~D~Social~?~neutral~Bye~~#
+#18~d~D~InteractionManagement~?~neutral~My go~~#
+#19~d~D~InteractionManagement~?~neutral~Your go~~#
+#20~d~D~InteractionManagement~?~neutral~Hurry up~~#
+#21~d~D~InteractionManagement~?~neutral~Slow down~~#
+#22~d~D~TaskManagement~?~neutral~Shall we move to another topic?~~#
+#23~e~D~TaskManagement~?~neutral~I would like to talk about statement~~#
+#24~d~D~InteractionManagement~?~neutral~I see what you mean~~#

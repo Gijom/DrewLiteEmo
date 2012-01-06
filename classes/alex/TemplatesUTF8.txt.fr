@@ -1,0 +1,24 @@
+﻿#1~e~O~Opinion~-~contra~Je ne suis pas d'accord avec la phrase~~#
+#2~e~O~Opinion~+~pro~Je suis d'accord avec la phrase~~#
+#3~e~O~Opinion~?~neutral~J'ai changé d'avis à propos de la phrase~~#
+#4~e~O~Opinion~?~neutral~Quel est votre opinion à propos de la phrase~~#
+#5~a~E~Explore and Deepen~?~neutral~J'aimerai clarifier la phrase~ en disant~#
+#6~e~E~Explore and Deepen~?~neutral~Pouvez-vous clarifier la phrase~~#
+#7~a~E~Explore and Deepen~X~neutral~Je rétracte la phrase~ parce que~#
+#8~c~E~Explore and Deepen~?~neutral~La phrase~ est reliée à la phrase~ parce que #
+#9~c~E~Explore and Deepen~?~neutral~Il y a un problème entre la phrase~ et la phrase~ parce que #
+#10~a~E~Explore and Deepen~+~pro~J'aimerai jusitifer la phrase~ en disant~#
+#11~e~E~Explore and Deepen~?~neutral~Pouvez-vous donner un exemple justifiant la phrase~~#
+#12~a~A~Arguing~+~pro~Je soutiens la phrase~ parce que~#
+#13~a~A~Arguing~-~contra~Je critique la phrase~ parce que~#
+#14~e~A~Arguing~?~neutral~Pouvez-vous donner un argument soutenant la phrase~~#
+#15~e~A~Arguing~?~neutral~Pouvez-vous donner un argument critiquant la phrase~~#
+#16~d~D~Social~?~neutral~Bonjour~~#
+#17~d~D~Social~?~neutral~Au revoir~~#
+#18~d~D~Interaction Management~?~neutral~J'y vais~~#
+#19~d~D~Interaction Management~?~neutral~Vous y allez~~#
+#20~d~D~Interaction Management~?~neutral~Allez, dépêchez vous !~~#
+#21~d~D~Interaction Management~?~neutral~Allez plus doucement~~#
+#22~d~D~Task Management~?~neutral~Et si nous passions à un autre sujet~~#
+#23~e~D~Task Management~?~neutral~J'aimerai parler de la phrase~~#
+#24~d~D~Interaction Management~?~neutral~Je comprends ce que vous voulez dire~~#

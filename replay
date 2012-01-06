@@ -1,0 +1,14 @@
+#!/bin/sh
+
+exec java \
+-Ddebug=0 \
+-Dslider=true \
+-Dencoding=UTF-8 \
+-Dfiledialog=true \
+-DCodeBase=file:./ \
+-Dlocale=fr \
+-Dtrace=sujet-$1.utf8 \
+-Dchat=true -Dalex=true \
+-Dgrapheur=true \
+\
+-Dplayer.mode=replay Drew.Client.App.player

@@ -1,0 +1,24 @@
+﻿#1~e~O~Opinion~-~contra~não estou de acordo com a afirmação~~#
+#2~e~O~Opinion~+~pro~concordo com a afirmação~~#
+#3~e~O~Opinion~?~neutral~mudei de opinião acerca da afirmação~~#
+#4~e~O~Opinion~?~neutral~qual é a tua opinião a propósito da afirmação~~#
+#5~a~E~Explore and Deepen~?~neutral~gostaria de clarificar a afirmação~ dizendo~#
+#6~e~E~Explore and Deepen~?~neutral~poderias clarificar a afirmação~~#
+#7~a~E~Explore and Deepen~X~neutral~retiro a afirmação~ porque~#
+#8~c~E~Explore and Deepen~?~neutral~a afirmação~ está relacionada com a afirmação~ porque#
+#9~c~E~Explore and Deepen~?~neutral~há um problema entre a afirmação~ e a afirmação~ porque#
+#10~a~E~Explore and Deepen~+~pro~gostaria de justificar a afirmação~ dizendo~#
+#11~e~E~Explore and Deepen~?~neutral~poderias dar um exemplo para justificar a afirmação~~#
+#12~a~A~Arguing~+~pro~apoio a afirmação~ porque~#
+#13~a~A~Arguing~-~contra~critico a afirmação~ porque~#
+#14~e~A~Arguing~?~neutral~poderias avançar com um argumento a favor da afirmação~#
+#15~e~A~Arguing~?~neutral~poderias avançar com um argumento contra a afirmação~#
+#16~d~D~Social~?~neutral~Olá~~#
+#17~d~D~Social~?~neutral~Adeus~~#
+#18~d~D~Interaction Management~?~neutral~É a minha vez~~#
+#19~d~D~Interaction Management~?~neutral~É a tua vez~~#
+#20~d~D~Interaction Management~?~neutral~Despacha-te~~#
+#21~d~D~Interaction Management~?~neutral~Mais devagar~~#
+#22~d~D~Task Management~?~neutral~Passamos para outro tópico?~~#
+#23~e~D~Task Management~?~neutral~Gostaria de falar acerca da afirmação~~#
+#24~d~D~Interaction Management~?~neutral~Compreendo o que queres dizer~~#

@@ -1,0 +1,149 @@
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+
+
+/**
+ * Scheme Applet
+ *
+ */
+public class MiscApplet extends Applet {
+    private TextArea  input;
+    private int ROWSIN = 10;
+    private int COLSIN = 100;
+    private TextArea  output;
+    private int ROWSOUT = 20;
+    private int COLSOUT = 100;
+
+    private Panel textPanel;
+    private Panel buttons;
+    private Button eval;
+    private Button clear;
+    private Button quit;
+
+    private boolean inited = false;
+
+    public int maxtxtlng = 16000;
+
+    /**
+     * Initialize the applet
+     */
+    public void init () {
+	setLayout (new BorderLayout());
+
+	textPanel = new Panel ();
+	textPanel.setLayout (new BorderLayout());
+        textPanel.setBackground(Color.white);
+
+	add (BorderLayout.CENTER, textPanel);
+
+	output = new TextArea ("",ROWSOUT,COLSOUT,
+                TextArea.SCROLLBARS_VERTICAL_ONLY);
+	output.setEditable (false);
+	textPanel.add (BorderLayout.NORTH, output);
+        output.setBackground(Color.white);
+
+	input = new TextArea ("",ROWSIN,COLSIN,
+                TextArea.SCROLLBARS_VERTICAL_ONLY);
+	textPanel.add (BorderLayout.CENTER, input);
+
+	buttons = new Panel();
+	buttons.setLayout (new FlowLayout());
+        buttons.setBackground(Color.white);
+	add (BorderLayout.SOUTH, buttons);
+	
+	eval = new Button ("Eval");
+	eval.addActionListener (new EvalAction ());
+	buttons.add (eval);
+
+	clear = new Button ("Clear");
+	clear.addActionListener (new ClearAction ());
+	buttons.add (clear);
+
+	quit = new Button ("Quit");
+	quit.addActionListener (new QuitAction ());
+	buttons.add (quit);
+
+        if (! inited)
+        {
+            //System.err.println("J'initialise scheme");
+            String msg = Sch.schinit(1);
+            // System.err.println("Second initialisation de scheme");
+            //String msg = Sch.sinit();
+            //Sch.sinit();
+            inited = true;
+            // System.err.println("Fin de l'initialisation");
+            output.append(msg+"\n");
+        }
+
+
+    }
+
+  /**
+   * Eval action
+   */
+  class EvalAction implements ActionListener {
+
+    public void addText(String str) {
+        // Insertion de la chaine en sortie
+        output.append(str);
+        // Se termine-t-elle par "\n" ?
+        if (! str.endsWith("\n"))
+            output.append("\n");
+        // On positionne à la fin
+        output.setCaretPosition(0x3ffffff);
+        int pos = output.getCaretPosition();
+        if (pos > maxtxtlng)
+        {
+              output.replaceRange("(truncated)\n...", 0, pos-maxtxtlng);
+              output.setCaretPosition(0x3ffffff);
+        }
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        // Read commands
+	String str = input.getText();
+        // Add commands to transcript
+        addText(str);
+
+        // Load the string in interpreter
+        Sch.load(str);
+        // Loop on code
+        Sch.loop();
+        // Get outputs
+        str = Sch.result();
+        // Put output in output text
+        addText(str);
+
+        // Reset input
+	input.setText ("");
+        // Ask for focus - doesn't work 
+        input.requestFocus();
+    }
+  }
+
+  /**
+   * Clear action
+   */
+  class ClearAction implements ActionListener {
+
+    public void actionPerformed(ActionEvent e) {
+	output.setText ("");
+    }
+  }
+
+
+  /**
+   * Quit action
+   */
+  class QuitAction implements ActionListener {
+
+    public void actionPerformed(ActionEvent e) {
+        quit.setEnabled(false);
+        // This won't work in an applet
+        System.exit(0);
+    }
+  }
+
+}

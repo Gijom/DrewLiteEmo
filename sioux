@@ -1,0 +1,19 @@
+#!/bin/sh
+
+java \
+	-DDebug=0 \
+\
+	-DDrew.raw.port=32001 \
+	-DDrew.http.port=32080 \
+	-DDrew.traces.dir="."\
+\
+	-DControl.port=3001 \
+	-DControl.bindaddress=127.0.0.1 \
+	-DControl.auth=true \
+	-DControl.auth.file="../Auth/drew.auth" \
+	-DControl.restrictedUser="drew" \
+	-DControl.restrictedUser.allow=true \
+	-DControl.restrictedUser.passwd="werd" \
+\
+	-DEncoding=utf-8\
+	Drew.Serveur.GrandSioux . 

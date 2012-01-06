@@ -1,0 +1,23 @@
+﻿#1~f~O~Opinion~-~contra~Nem értek egyet a/az~. sz. állítással.~#
+#2~f~O~Opinion~+~pro~Egyetértek a/az~. sz. állítással.~#
+#3~f~O~Opinion~?~neutral~Megváltozott az álláspom a/az~. sz. állítással kapcsolatban.~#
+#4~f~O~Opinion~?~neutral~Mi a véleményed a/az~. sz. állítással kapcsolatban?~#
+#5~a~E~Explore~?~neutral~Azzal szeretném megmagyarazni a/az~. sz. állítást, hogy~#
+#6~f~E~Explore~?~neutral~Meg tudnád magyarázni a/az~. sz. állítást?~#
+#7~a~E~Explore~X~neutral~Visszavonom a/az~. sz. állítást, mert~#
+#8~c~E~Explore~?~neutral~A/az~. sz. állítás összefügg a/az~. sz. állítással, mert#
+#9~c~E~Explore~?~neutral~A/az~. és a/az~. sz. állítás kapcsolata problematikus, mert#
+#10~a~E~Explore~+~pro~Azzal szeretném alátámasztani a/az~. sz. állítást, hogy~#
+#11~f~E~Explore~?~pro~Alátámasztanád egy példával a/az~. sz. állításodat?~#
+#12~a~A~arg~+~pro~Egyetértek a/az~. sz. állítással, mert~#
+#13~a~A~arg~-~contra~Nem értek egyet a/az~. sz. állítással, mert~#
+#14~f~A~arg~?~neutral~Alátámasztanád érvvel is a/az~. sz. állítást?~#
+#15~f~A~arg~?~neutral~Milyen érvvel tudnád cáfolni a/az~. sz. állítást?~#
+#16~d~D~Social~?~neutral~Szia!~~#
+#17~d~D~Social~?~neutral~Viszlát!~~#
+#18~d~D~InteractionManagement~?~neutral~Én következm.~~#
+#19~d~D~InteractionManagement~?~neutral~Te jössz.~~#
+#20~d~D~InteractionManagement~?~neutral~Siess!~~#
+#21~d~D~InteractionManagement~?~neutral~Lassabban!~~#
+#22~f~D~TaskManagement~?~neutral~Beszéljünk a/az~. sz. állításról!~#
+#23~d~D~TaskManagement~?~neutral~Értem, amit mondasz.~~#

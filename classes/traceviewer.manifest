@@ -1,0 +1,2 @@
+Main-Class: Drew.TraceViewer.TraceViewer
+Class-PATH: . lib/jfreechart-1.0.3.jar lib/jcommon-1.0.6.jar
