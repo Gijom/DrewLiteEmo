@@ -7,6 +7,8 @@ package Drew.Client.GEW;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.Arc2D;
+import java.awt.geom.Point2D;
+import java.awt.image.BufferedImage;
 
 /**
  * RoundButton - a class that produces a lightweight button.
@@ -24,7 +26,7 @@ public class GEWButton extends Component {
   String label;                      // The Button's text
   protected boolean pressed = false; // true if the button is detented.
   Color color;
- 
+  BufferedImage offscreen = null;                  //Image used for the double-buffering display of the button
   
   /**
    * Constructs a RoundButton with no label.
@@ -81,17 +83,27 @@ public class GEWButton extends Component {
    */
   public void paint(Graphics g) {
 
+
       //Determine the Size of the round Button
       int s = Math.min(getSize().width, getSize().height);    
 
-      //Define image and graphic for double buffering
-      Image offscreen = createImage(s, s);      
+      //Create the image if it does not exist yet (after that the button is always drawn over the old button)
+//      if(offscreen == null) {
+//        GraphicsConfiguration gc = getGraphicsConfiguration();
+//        offscreen = gc.createCompatibleImage(s, s, Transparency.BITMASK);
+//      }
+        //In the end it seems it is needed cause button size might have changed
+        GraphicsConfiguration gc = getGraphicsConfiguration();
+        offscreen = gc.createCompatibleImage(s, s, Transparency.BITMASK);
+      
+      
+      //Get the 2D graphic drawing
       Graphics2D g2D = (Graphics2D) offscreen.getGraphics();
       g2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-      g2D.setStroke(new BasicStroke(2));
-      
+      g2D.setStroke(new BasicStroke(BORDER_TICKNESS));  //Pen width
+              
       //Redefine the size to account for the tickness of the border
-       s = s - BORDER_TICKNESS;
+      s = s - BORDER_TICKNESS + 1;
       
       //Create the button arc / circle
       Arc2D arc = new Arc2D.Double(0, 0, s, s, 0, 360, Arc2D.CHORD);
@@ -113,16 +125,20 @@ public class GEWButton extends Component {
       g2D.setPaint(brighttodark);
       g2D.draw(arc);
       
-      // draw the label centered in the button
-      Font f = getFont();
-      if(f != null) {
-	  FontMetrics fm = getFontMetrics(getFont());
-	  g2D.setColor(Color.BLACK);
-	  g2D.drawString(label, s/2 - fm.stringWidth(label)/2, s/2 + fm.getMaxDescent());
+      // draw the label centered in the button      
+      if(label != null) {
+          Font f = getFont();
+          if (f!= null)
+          {
+            FontMetrics fm = getFontMetrics(getFont());
+            g2D.setColor(Color.BLACK);
+            g2D.drawString(label, s/2 - fm.stringWidth(label)/2, s/2 + fm.getMaxDescent());
+          }
       }
       
       //Show the whole image (double buffering)
       g.drawImage(offscreen,0,0,this);
+      g2D.dispose();
   }
   
   /**
@@ -143,9 +159,35 @@ public class GEWButton extends Component {
    * The minimum size of the button. 
    */
   public Dimension getMinimumSize() {
-      return new Dimension(100, 100);
+      return new Dimension(0, 0);
   }
 
+  public void setRadius(double r) {
+      int diameter = (int) Math.round(2*r);
+      setSize(new Dimension(diameter,diameter));
+  }
+  
+  public double getRadius() {        
+      return Math.min(getSize().width, getSize().height) / 2;      
+  }
+  
+  public void setCenter(Point center) {
+      double r = getRadius();
+      Dimension d = getSize();              
+      this.setBounds((int) Math.round(center.getX() - r), (int) Math.round(center.getY() - r), d.width, d.height);
+      //!!!!!!!!!!!!!!!!!!!!!!!!! are you sure you should do -r ?
+  }
+  
+  public Point getCenter() {
+      Rectangle rec = getBounds();
+      double r = getRadius();
+      Point center = new Point((int) Math.round(rec.x + r), (int) Math.round(rec.y + r));
+      return center;
+  }
+  
+  
+  //myButton.setBounds(100 + insets.left, 500 + insets.top, size.width, size.height);
+  
   /**
    * Adds the specified action listener to receive action events
    * from this button.
