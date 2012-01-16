@@ -22,11 +22,12 @@ public class GEWButton extends Component {
   public static final Color DEFAULT_COLOR = Color.LIGHT_GRAY;    
   public static final int BORDER_TICKNESS = 2;
   
-  ActionListener actionListener;     // Post action events to listeners
-  String label;                      // The Button's text
-  protected boolean pressed = false; // true if the button is detented.
-  Color color;
-  BufferedImage offscreen = null;                  //Image used for the double-buffering display of the button
+  private ActionListener actionListener;        // Post action events to listeners
+  private String label;                         // The Button's text
+  private boolean pressed = false;              // true if the button is detented.
+  private Color colorUnpressed;                          // color of the button when not pressed
+  private Color colorPressed;                   // color of the button when pressed
+  private BufferedImage offscreen = null;       //Image used for the double-buffering display of the button
   
   /**
    * Constructs a RoundButton with no label.
@@ -45,8 +46,13 @@ public class GEWButton extends Component {
 
   public GEWButton(String label, Color color) {
         this.label = label;
-        this.color = color;
+        this.colorUnpressed = color;
+        this.colorPressed = color.darker();
         enableEvents(AWTEvent.MOUSE_EVENT_MASK);
+  }
+
+    public GEWButton(Color color) {
+        this(null, color);
   }
   
   /**
@@ -66,18 +72,48 @@ public class GEWButton extends Component {
       invalidate();
       repaint();
   }
-  
+
+ 
   public Color getColor() {
-      return color;
+      if(pressed)
+        return colorPressed;
+      else
+        return colorUnpressed;
   }
+ 
+  
+  public Color getColorPressed() {
+     return colorPressed;
+  }
+
+  public Color getColorUnpressed() {
+      return colorUnpressed;
+  }
+ 
   
   public void setColor(Color color) {
-      this.color = color;
+      this.colorUnpressed = color;
+      this.colorPressed = color.darker();
       invalidate();
       repaint();
   }
           
+  public void setColorPressed(Color color) {
+      this.colorPressed = color;
+      if(pressed) {
+        invalidate();
+        repaint();
+      }
+  }
   
+  public void setColorUnpressed(Color color) {
+      this.colorUnpressed = color;
+      if(!pressed) {          
+        invalidate();
+        repaint();
+      }
+  }
+    
   /**
    * paints the RoundButton
    */
@@ -87,14 +123,9 @@ public class GEWButton extends Component {
       //Determine the Size of the round Button
       int s = Math.min(getSize().width, getSize().height);    
 
-      //Create the image if it does not exist yet (after that the button is always drawn over the old button)
-//      if(offscreen == null) {
-//        GraphicsConfiguration gc = getGraphicsConfiguration();
-//        offscreen = gc.createCompatibleImage(s, s, Transparency.BITMASK);
-//      }
-        //In the end it seems it is needed cause button size might have changed
-        GraphicsConfiguration gc = getGraphicsConfiguration();
-        offscreen = gc.createCompatibleImage(s, s, Transparency.BITMASK);
+      //In the end it seems it is needed cause button size might have changed
+      GraphicsConfiguration gc = getGraphicsConfiguration();
+      offscreen = gc.createCompatibleImage(s, s, Transparency.BITMASK);
       
       
       //Get the 2D graphic drawing
@@ -111,9 +142,9 @@ public class GEWButton extends Component {
       //Make a darker button if pressed a normal color button otherwise
       Color currentColor; //the current color of the button (if pressed or not)      
       if(pressed) {
-          currentColor = color.darker();
+          currentColor = colorPressed;
       } else {
-	  currentColor = color;
+	  currentColor = colorUnpressed;
       }      
       
       // paint the interior of the button
@@ -226,6 +257,7 @@ public class GEWButton extends Component {
 	    // render myself inverted only if the left clic is used
             if ((e.getModifiers() & InputEvent.BUTTON1_MASK) == InputEvent.BUTTON1_MASK) {
                 pressed = !pressed;
+                System.out.println("Button: button pressed");
                 repaint();
             }
 	    break;

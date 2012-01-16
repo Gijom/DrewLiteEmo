@@ -1130,3 +1130,146 @@
 <event mark="http test step 1" user="test" room="Hall"><time><date>1326387715669</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
 <event mark="http test step 1" user="test" room="Hall"><time><date>1326387715694</date></time><server><syn/></server></event>
 <event><time><date>1326387885976</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326440085960</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326440086115</date></time><server><syn/></server></event>
+<event><time><date>1326440171358</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326440895139</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326440895177</date></time><server><syn/></server></event>
+<event><time><date>1326447635875</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326447653822</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326447653856</date></time><server><syn/></server></event>
+<event><time><date>1326447706809</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326447745862</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326447745896</date></time><server><syn/></server></event>
+<event><time><date>1326447748868</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326447760190</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326447760217</date></time><server><syn/></server></event>
+<event><time><date>1326449164594</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326449173214</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326449173289</date></time><server><syn/></server></event>
+<event><time><date>1326449191834</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326449254374</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326449254422</date></time><server><syn/></server></event>
+<event><time><date>1326449355362</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326465216125</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326465216201</date></time><server><syn/></server></event>
+<event><time><date>1326465234656</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326465255941</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326465255999</date></time><server><syn/></server></event>
+<event><time><date>1326465307696</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326465330669</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326465330716</date></time><server><syn/></server></event>
+<event><time><date>1326465339744</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326465358821</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326465358867</date></time><server><syn/></server></event>
+<event><time><date>1326465487104</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326465547237</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326465547284</date></time><server><syn/></server></event>
+<event><time><date>1326465745744</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326706934900</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326706935051</date></time><server><syn/></server></event>
+<event><time><date>1326707026692</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326708723993</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326708724074</date></time><server><syn/></server></event>
+<event><time><date>1326708737444</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326708754481</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326708754534</date></time><server><syn/></server></event>
+<event><time><date>1326708792644</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326708824025</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326708824077</date></time><server><syn/></server></event>
+<event><time><date>1326709180116</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326709187377</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326709187428</date></time><server><syn/></server></event>
+<event><time><date>1326709307602</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326709314769</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326709314819</date></time><server><syn/></server></event>
+<event><time><date>1326709509534</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326709512265</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event><time><date>1326709537820</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326709544049</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326709544100</date></time><server><syn/></server></event>
+<event><time><date>1326709574604</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326709700921</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326709700969</date></time><server><syn/></server></event>
+<event><time><date>1326709735396</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326709768817</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326709768888</date></time><server><syn/></server></event>
+<event><time><date>1326709840028</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326710866745</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326710866813</date></time><server><syn/></server></event>
+<event><time><date>1326710883644</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326711325561</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326711325600</date></time><server><syn/></server></event>
+<event><time><date>1326711333181</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326711348417</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326711348459</date></time><server><syn/></server></event>
+<event><time><date>1326711355653</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326711381041</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326711381081</date></time><server><syn/></server></event>
+<event><time><date>1326711404940</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326715139801</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326715139846</date></time><server><syn/></server></event>
+<event><time><date>1326715201845</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326715209321</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326715209366</date></time><server><syn/></server></event>
+<event><time><date>1326715343973</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326715370873</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326715371123</date></time><server><syn/></server></event>
+<event><time><date>1326715374693</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326715830122</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326715830179</date></time><server><syn/></server></event>
+<event><time><date>1326715900893</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326716355569</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326716355625</date></time><server><syn/></server></event>
+<event><time><date>1326716372013</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326716490193</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326716490236</date></time><server><syn/></server></event>
+<event><time><date>1326716499677</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326716597065</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326716597106</date></time><server><syn/></server></event>
+<event><time><date>1326716610837</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326716646370</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326716646412</date></time><server><syn/></server></event>
+<event><time><date>1326716696765</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326716703402</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326716703442</date></time><server><syn/></server></event>
+<event><time><date>1326716718376</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326716730993</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326716731036</date></time><server><syn/></server></event>
+<event><time><date>1326716760301</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326718037762</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326718037799</date></time><server><syn/></server></event>
+<event><time><date>1326718054989</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326718196634</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326718196675</date></time><server><syn/></server></event>
+<event><time><date>1326718202805</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326718553570</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326718553609</date></time><server><syn/></server></event>
+<event><time><date>1326718569237</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326718597810</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326718597852</date></time><server><syn/></server></event>
+<event><time><date>1326718645181</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326718670170</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326718670208</date></time><server><syn/></server></event>
+<event><time><date>1326718713469</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326719521722</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326719521762</date></time><server><syn/></server></event>
+<event><time><date>1326719901213</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326722869186</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326722869224</date></time><server><syn/></server></event>
+<event><time><date>1326722898790</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326723913970</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326723914010</date></time><server><syn/></server></event>
+<event><time><date>1326723928422</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326723985018</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326723985056</date></time><server><syn/></server></event>
+<event><time><date>1326723998822</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="tst" room="Hall"><time><date>1326724034370</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="tst"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="tst" room="Hall"><time><date>1326724034437</date></time><server><syn/></server></event>
+<event><time><date>1326724048846</date></time><control><info>tst nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326724223178</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326724223220</date></time><server><syn/></server></event>
+<event><time><date>1326724251518</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326724482154</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1326724482269</date></time><server><syn/></server></event>
+<event><time><date>1326724501166</date></time><control><info>test nest plus des notres</info></control></event>

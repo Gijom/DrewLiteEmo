@@ -3,12 +3,16 @@
  * and open the template in the editor.
  */
 package Drew.Client.GEW;
-import java.awt.Component;
-import java.awt.Graphics;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Label;
 import java.awt.Panel;
-import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.event.MouseListener;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
 
 /**
  *
@@ -16,29 +20,55 @@ import java.util.ArrayList;
  */
 public class GEWLine {
     
-    ArrayList<GEWButton> GEWButtons;  //Smallest button is the first of the list  
-    int minButtonRadius;
-    int maxButtonRadius;
-    
+    ArrayList<GEWButton> GEWButtons;    //Smallest button is the first of the list  
+    JLabel emotion;                      //The name of the emotion corresponding to this line
+    int minButtonRadius;                //The maximum size of a button in the wheel
+    int maxButtonRadius;                //The minimum size of a button in the wheel
+    Color buttonsColor;
     public GEWLine() {
         super();
     }
     
-    public GEWLine(int nbButtons) {
-
-        //Create the new vector of GEWButtons
-        GEWButtons = new ArrayList<GEWButton>(nbButtons);
-        for(int ib = 0;ib < nbButtons;ib++) {
-            GEWButtons.add(new GEWButton());
-        }
-    
+    public GEWLine(int nbButtons, String emotion) {
+        buttonsColor = null;
+        createUI(nbButtons, emotion);
     }
     
-    public GEWLine(int nbButtons, int minButtonRadius, int maxButtonRadius) {
-        this(nbButtons);
+    public GEWLine(int nbButtons, String emotion, int minButtonRadius, int maxButtonRadius) {
+        this(nbButtons, emotion);
         
         //Set the size of each button
         setButtonsRadiusRange(minButtonRadius, maxButtonRadius);
+    }
+    
+    public GEWLine(int nbButtons, String emotion, Color color, int minButtonRadius, int maxButtonRadius) {
+        this(nbButtons, emotion, minButtonRadius, maxButtonRadius);
+        
+        buttonsColor = color;
+        createUI(nbButtons, emotion);
+    }
+    
+    private void createUI(int nbButtons, String emotion) {
+        //Create the new vector of GEWButtons
+        GEWButtons = new ArrayList<GEWButton>(nbButtons);
+        for(int ib = 0;ib < nbButtons;ib++) {
+            if(buttonsColor != null)
+                GEWButtons.add(new GEWButton(buttonsColor));            
+            else
+                GEWButtons.add(new GEWButton());                
+        }
+        
+        //Create and resize the label
+        this.emotion = new JLabel(emotion);
+        //this.emotion.setBorder(BorderFactory.createLineBorder(Color.black)); //for labels use setinsets ?
+        this.emotion.setSize(this.emotion.getPreferredSize());        
+    }
+    
+    public void setButtonsColor(Color color)
+    {
+        buttonsColor = color;
+        for(int ib = 0;ib < GEWButtons.size();ib++)
+            GEWButtons.get(ib).setColor(color);
     }
     
     public void setButtonsRadiusRange(int minButtonRadius, int maxButtonRadius)
@@ -92,17 +122,45 @@ public class GEWLine {
             center = PointUtil.add(center, PointUtil.multiply(vector, currentButton.getRadius()));
             center = PointUtil.add(center, PointUtil.multiply(vector, interSpace));
         }
+        
+        //Place the label: depending on the orientation of the line the label is placed
+        //differently (one of the four corner is used for position)
+        //Not too general: missing EAST, WEST, NORTH, SOUTH
+        switch(PointUtil.getOrientationUI(vector)) {
+            case NORTH_EAST: //Bottom left corner
+                center = PointUtil.addY(center, -emotion.getHeight());
+                break;
+            case NORTH_WEST: //Bottom right corner
+                center = PointUtil.addX(center, -emotion.getWidth());
+                center = PointUtil.addY(center, -emotion.getHeight());
+                break;
+            case SOUTH_EAST: //Upper left corner
+                break;
+            case SOUTH_WEST: //Upper right corner
+                center = PointUtil.addX(center, -emotion.getWidth());
+                break;
+        }
+        emotion.setLocation(PointUtil.toPoint(center));
+        
     }
     
-    public void addToComponent(Panel c)
+    public void addToComponent(GEW c) //c'est pas joli joli
     {
-        for(int ib = 0; ib < GEWButtons.size(); ib++)
-            c.add(GEWButtons.get(ib));
+        for(int ib = 0; ib < GEWButtons.size(); ib++) {
+            GEWButton currButton = GEWButtons.get(ib);
+            c.add(currButton);
+            currButton.addMouseListener(c);
+        }
+        c.add(emotion);
+        
+        
     }
     
     public ArrayList<GEWButton> getButtons() {
         return GEWButtons;
     }
     
-    
+    public JLabel getLabel() {
+        return emotion;
+    }
 }
