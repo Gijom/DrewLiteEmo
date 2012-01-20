@@ -28,8 +28,8 @@ public class GEWButton extends Component {
   private Color colorUnpressed;                          // color of the button when not pressed
   private Color colorPressed;                   // color of the button when pressed
   private BufferedImage offscreen = null;       //Image used for the double-buffering display of the button
-  
-  /**
+  private GEWLine parentLine = null;
+    /**
    * Constructs a RoundButton with no label.
    */
   public GEWButton() {
@@ -51,8 +51,26 @@ public class GEWButton extends Component {
         enableEvents(AWTEvent.MOUSE_EVENT_MASK);
   }
 
-    public GEWButton(Color color) {
+  public GEWButton(Color color) {
         this(null, color);
+  }
+
+  public void setParentLine(GEWLine parentLine) {
+        this.parentLine = parentLine;
+  }
+
+  public GEWLine getParentLine() {
+        return parentLine;
+  }
+
+  public boolean isPressed() {
+        return pressed;
+  }
+  
+  public void clickButton() {
+        pressed = !pressed;
+        invalidate();
+        repaint();
   }
   
   /**
@@ -257,7 +275,6 @@ public class GEWButton extends Component {
 	    // render myself inverted only if the left clic is used
             if ((e.getModifiers() & InputEvent.BUTTON1_MASK) == InputEvent.BUTTON1_MASK) {
                 pressed = !pressed;
-                System.out.println("Button: button pressed");
                 repaint();
             }
 	    break;

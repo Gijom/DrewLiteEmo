@@ -8,6 +8,7 @@ import java.awt.Dimension;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.Rectangle;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ import javax.swing.JLabel;
  *
  * @author chanel
  */
-public class GEWLine {
+public class GEWLine implements MouseListener {
     
     ArrayList<GEWButton> GEWButtons;    //Smallest button is the first of the list  
     JLabel emotion;                      //The name of the emotion corresponding to this line
@@ -48,14 +49,19 @@ public class GEWLine {
         createUI(nbButtons, emotion);
     }
     
+  
     private void createUI(int nbButtons, String emotion) {
         //Create the new vector of GEWButtons
+        GEWButton newButton;
         GEWButtons = new ArrayList<GEWButton>(nbButtons);
         for(int ib = 0;ib < nbButtons;ib++) {
             if(buttonsColor != null)
-                GEWButtons.add(new GEWButton(buttonsColor));            
+                newButton = new GEWButton(buttonsColor);            
             else
-                GEWButtons.add(new GEWButton());                
+                newButton = new GEWButton();  
+            newButton.setParentLine(this);
+            newButton.addMouseListener(this);
+            GEWButtons.add(newButton);            
         }
         
         //Create and resize the label
@@ -63,6 +69,20 @@ public class GEWLine {
         //this.emotion.setBorder(BorderFactory.createLineBorder(Color.black)); //for labels use setinsets ?
         this.emotion.setSize(this.emotion.getPreferredSize());        
     }
+
+    public int getScaleValue() {
+        int ib;
+        
+        for(ib=0;ib < GEWButtons.size();ib++)
+            if(GEWButtons.get(ib).isPressed())
+                break;
+        
+        if(ib >= GEWButtons.size()) //No button clicked
+            return 0;
+        else
+            return ib+1;        
+    }
+
     
     public void setButtonsColor(Color color)
     {
@@ -160,7 +180,47 @@ public class GEWLine {
         return GEWButtons;
     }
     
-    public JLabel getLabel() {
+    public JLabel getEmotionLabel() {
         return emotion;
     }
+    
+    public void setEmotionLabel(String label) {
+        emotion.setText(label);
+    }
+        
+    public boolean isNameEqual(String lineName) {
+        return lineName.equalsIgnoreCase(this.emotion.getText());
+    }
+    
+    
+    @Override
+    public void mouseClicked(MouseEvent ev) {
+ /*       //check that Only one button is pressed by line, choose the last button pressed
+        GEWButton currentButton;
+        for(int ib=0;ib < GEWButtons.size();ib++) {
+            currentButton = GEWButtons.get(ib);
+            if(currentButton.isPressed() & (currentButton != ev.getComponent()))
+                currentButton.clickButton();
+        }
+*/
+    }
+    
+    @Override
+    public void mouseExited(MouseEvent ev) {
+    }
+    
+    @Override
+    public void mouseEntered(MouseEvent ev) {
+        //System.out.println("mouse entered");
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent ev) {
+    }
+
+    @Override
+    public void mousePressed(MouseEvent ev) {
+    } 
+    
+    
 }

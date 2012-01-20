@@ -48,6 +48,11 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Mou
     int nbEmotions = emotions.size();
     int nbPointsPerScale = 5;
     Dimension maxSizeLabels;
+    XMLTree eventToSend = null;
+    XMLTree eventContent = null;
+
+    Color firstLineColor = new Color(0.65f, 0.65f, 0.65f); 
+    Color otherLineColor = new Color(0.75f, 0.75f, 0.75f);;
     
     public GEW() {
         super();
@@ -56,6 +61,7 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Mou
     public GEW(Communication cdc) {
         this();
         this.constructor(cdc);
+       
     }
 
     @Override
@@ -72,6 +78,8 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Mou
         
         maxSizeLabels = new Dimension(0,0);
         central_applet = cdc;
+        
+       
     }
 
     //Create all the UI components + action listeners
@@ -98,7 +106,7 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Mou
             currLine.addToComponent(this); //Add each line of buttons to the current panel
             
             //Find the maximum label size (vertical and horizontal)
-            Dimension size = currLine.getLabel().getPreferredSize();
+            Dimension size = currLine.getEmotionLabel().getPreferredSize();
             if (size.height > maxSizeLabels.height)
                 maxSizeLabels.height = size.height;
             if (size.width > maxSizeLabels.width)
@@ -135,9 +143,9 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Mou
             
             //Set the button to the correct color
             if(isFirstColor)
-                currentLine.setButtonsColor(Color.WHITE);
+                currentLine.setButtonsColor(firstLineColor);
             else
-                currentLine.setButtonsColor(Color.LIGHT_GRAY);
+                currentLine.setButtonsColor(otherLineColor);
             
             //Each line is composed of a starting Point (small button) and endPoint (big Button)
             Point2D endPoint = new Point2D.Double((Math.cos(angle) * panelRadius),(-Math.sin(angle) * panelRadius));
@@ -167,9 +175,58 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Mou
     @Override
     public void moduleMessageDeliver(String user, XMLTree data) {
         // TODO Auto-generated method stub
+       	if( getCode().equals( data.tag() ) ) {
+            //Parse the data received
+            XMLTree content = (XMLTree) data.contents().elt(0);
+            System.out.println("Message content: " + content.toString());
+            int lineID = Integer.parseInt(content.getAttributeValue("LineID"));
+            int buttonID = Integer.parseInt(content.getAttributeValue("ButtonID"));
 
+            //If the message comes from another user than simulate the buttonClik and adjust the buttons
+            //oIf the message come from the user of this client than everything is already done
+            if(!user.equals(getUsername())) {                
+                adjustButtons(lineID, buttonID, user);
+            }
+        }
     }
 
+    private void adjustButtons(int lineID, int buttonID, String requester)
+    {
+        
+        //Get the color of the user
+        Color userColor = getColor(requester);
+        
+        //Get the corresponding lines and buttons
+        GEWLine currLine = GEW.get(lineID);
+        GEWButton currButton = currLine.getButtons().get(buttonID);
+
+        //If the requester is the not the local user simulate a clic (otherwise the button clic is already done)
+        //If the requester is the local user but the button was pressed by other users repress it
+        if(getUsername() != requester)
+            GEW.get(lineID).getButtons().get(buttonID).clickButton();
+
+        
+        
+        //Unpress all the buttons of the same line and from the same user (based on color)
+        //Except for the button that as been pressed in this call
+        ArrayList<GEWButton> buttonList = currLine.getButtons();
+        for(int ib = 0; ib < buttonList.size(); ib++) {
+            GEWButton b = buttonList.get(ib);
+            if( (b != currButton) & (b.isPressed()) & (b.getColorPressed() == userColor))
+                b.clickButton();
+        }
+
+        //Set the color of the Button to draw
+        if(currButton.isPressed()) //If pressed use the user color
+            currButton.setColorPressed(userColor);
+        else { //If not pressed than prepare for the next clic (replace the user color by the standard one)
+            if((lineID % 2) == 0)
+                currButton.setColorPressed(firstLineColor.darker());
+            else
+                currButton.setColorPressed(otherLineColor.darker());
+        }
+    }
+    
     @Override
     public void componentHidden(ComponentEvent e)
     {
@@ -198,7 +255,22 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Mou
     
     @Override
     public void mouseClicked(MouseEvent ev) {
-        System.out.println("GEW: Button clicked !");        
+        
+        //Get the components associated with the event
+        GEWButton button = (GEWButton) ev.getComponent();
+        GEWLine line = button.getParentLine();
+        int lineID = GEW.indexOf(line);
+        int buttonID = line.getButtons().indexOf(button);
+        
+        //Adjust the line to avoid several button pressed, etc.
+        adjustButtons(lineID, buttonID, getUsername());        
+        
+        //Send the event corresponding to the change of state
+        eventContent = new XMLTree(line.getEmotionLabel().getText(), line.getScaleValue());
+        eventContent.setAttribute("LineID", lineID);
+        eventContent.setAttribute("ButtonID", buttonID);
+        eventToSend = new XMLTree( CODE, eventContent);
+        sendServer(eventToSend);
     }
     
     @Override
@@ -207,7 +279,7 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Mou
     
     @Override
     public void mouseEntered(MouseEvent ev) {
-        System.out.println("mouse entered");
+        //System.out.println("mouse entered");
     }
 
     @Override
