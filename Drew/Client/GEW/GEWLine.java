@@ -84,11 +84,11 @@ public class GEWLine implements MouseListener {
     }
 
     
-    public void setButtonsColor(Color color)
+    public void setButtonsColor(Color color, Color userColor)
     {
         buttonsColor = color;
         for(int ib = 0;ib < GEWButtons.size();ib++)
-            GEWButtons.get(ib).setColor(color);
+            GEWButtons.get(ib).setColor(color, userColor);
     }
     
     public void setButtonsRadiusRange(int minButtonRadius, int maxButtonRadius)
@@ -120,10 +120,6 @@ public class GEWLine implements MouseListener {
     public void setLinePosition(Point2D p1, Point2D p2) {
         double lineLength = p1.distance(p2);
         Point2D vector = PointUtil.divide(PointUtil.substract(p2, p1), lineLength);
-//        System.out.println("P1: " + p1.toString());
-//        System.out.println("P2: " + p2.toString());
-//        System.out.println("Vector: " + vector.toString());
-//        System.out.println("---------------");
         
         //Compute the sum of the buttons diameter
         double buttonsLength = 0;

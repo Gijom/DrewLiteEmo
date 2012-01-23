@@ -52,7 +52,7 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Mou
     XMLTree eventContent = null;
 
     Color firstLineColor = new Color(0.65f, 0.65f, 0.65f); 
-    Color otherLineColor = new Color(0.75f, 0.75f, 0.75f);;
+    Color otherLineColor = new Color(0.75f, 0.75f, 0.75f);
     
     public GEW() {
         super();
@@ -143,9 +143,9 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Mou
             
             //Set the button to the correct color
             if(isFirstColor)
-                currentLine.setButtonsColor(firstLineColor);
+                currentLine.setButtonsColor(firstLineColor, getColor(getUsername()));
             else
-                currentLine.setButtonsColor(otherLineColor);
+                currentLine.setButtonsColor(otherLineColor, getColor(getUsername()));
             
             //Each line is composed of a starting Point (small button) and endPoint (big Button)
             Point2D endPoint = new Point2D.Double((Math.cos(angle) * panelRadius),(-Math.sin(angle) * panelRadius));
@@ -182,49 +182,34 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Mou
             int lineID = Integer.parseInt(content.getAttributeValue("LineID"));
             int buttonID = Integer.parseInt(content.getAttributeValue("ButtonID"));
 
-            //If the message comes from another user than simulate the buttonClik and adjust the buttons
-            //oIf the message come from the user of this client than everything is already done
-            if(!user.equals(getUsername())) {                
+            //Adjust the buttons
+            if(!user.equals(getUsername()))
                 adjustButtons(lineID, buttonID, user);
-            }
         }
     }
 
     private void adjustButtons(int lineID, int buttonID, String requester)
     {
-        
-        //Get the color of the user
-        Color userColor = getColor(requester);
+        //Get the color of the requestor
+        Color requesterColor = getColor(requester);
         
         //Get the corresponding lines and buttons
         GEWLine currLine = GEW.get(lineID);
         GEWButton currButton = currLine.getButtons().get(buttonID);
 
-        //If the requester is the not the local user simulate a clic (otherwise the button clic is already done)
-        //If the requester is the local user but the button was pressed by other users repress it
-        if(getUsername() != requester)
-            GEW.get(lineID).getButtons().get(buttonID).clickButton();
-
-        
+        //Simulate the click if the requester is not the local user
+        if(!requester.equals(getUsername()))
+            currButton.clickButton(requesterColor);
         
         //Unpress all the buttons of the same line and from the same user (based on color)
         //Except for the button that as been pressed in this call
         ArrayList<GEWButton> buttonList = currLine.getButtons();
         for(int ib = 0; ib < buttonList.size(); ib++) {
             GEWButton b = buttonList.get(ib);
-            if( (b != currButton) & (b.isPressed()) & (b.getColorPressed() == userColor))
-                b.clickButton();
+            if( (b != currButton) & (b.getState() == GEWButton.ButtonState.PRESSED))
+                b.clickButton(getColor(requester));
         }
 
-        //Set the color of the Button to draw
-        if(currButton.isPressed()) //If pressed use the user color
-            currButton.setColorPressed(userColor);
-        else { //If not pressed than prepare for the next clic (replace the user color by the standard one)
-            if((lineID % 2) == 0)
-                currButton.setColorPressed(firstLineColor.darker());
-            else
-                currButton.setColorPressed(otherLineColor.darker());
-        }
     }
     
     @Override

@@ -9,6 +9,10 @@ import java.awt.event.*;
 import java.awt.geom.Arc2D;
 import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * RoundButton - a class that produces a lightweight button.
@@ -21,14 +25,18 @@ public class GEWButton extends Component {
 
   public static final Color DEFAULT_COLOR = Color.LIGHT_GRAY;    
   public static final int BORDER_TICKNESS = 2;
+  public static enum ButtonState {PRESSED, UNPRESSED, INPRESS};
   
   private ActionListener actionListener;        // Post action events to listeners
   private String label;                         // The Button's text
-  private boolean pressed = false;              // true if the button is detented.
-  private Color colorUnpressed;                          // color of the button when not pressed
-  private Color colorPressed;                   // color of the button when pressed
+  private boolean inpress;                      // The button is pressed by the main user but is not released yet
+  private Color colorUnpressed;                 // color of the button when not pressed
+  private Color colorInPress;                   // color of the button when in press (mbutton pressed but not released)
+  private Color colorMainUserPressed;           // color of the button when pressed by the main user (mouse click)
+  private HashSet<Color> coloredUsersPressed;       // contains the colors of the users who pressed the button (including main user)
   private BufferedImage offscreen = null;       //Image used for the double-buffering display of the button
-  private GEWLine parentLine = null;
+  private GEWLine parentLine = null;            // A pointer to the parent line if it exists
+  
     /**
    * Constructs a RoundButton with no label.
    */
@@ -45,9 +53,12 @@ public class GEWButton extends Component {
   }
 
   public GEWButton(String label, Color color) {
+        this.coloredUsersPressed = new HashSet<Color>();
+        this.inpress = false;
         this.label = label;
         this.colorUnpressed = color;
-        this.colorPressed = color.darker();
+        this.colorMainUserPressed = color.darker();
+        this.colorInPress = this.colorMainUserPressed;
         enableEvents(AWTEvent.MOUSE_EVENT_MASK);
   }
 
@@ -63,12 +74,29 @@ public class GEWButton extends Component {
         return parentLine;
   }
 
-  public boolean isPressed() {
-        return pressed;
+  public ButtonState getState() {
+        if(!inpress) {
+            if(coloredUsersPressed.isEmpty())
+                return ButtonState.UNPRESSED;
+            else
+                return ButtonState.PRESSED;
+        }
+        else
+            return ButtonState.INPRESS;
   }
   
-  public void clickButton() {
-        pressed = !pressed;
+  public boolean isPressed() {
+        if(getState() == ButtonState.PRESSED)
+            return true;
+        else
+            return false;
+  }
+  
+  public void clickButton(Color coloredUser) { //TODO
+        if(coloredUsersPressed.contains(coloredUser))
+            coloredUsersPressed.remove(coloredUser);
+        else
+            coloredUsersPressed.add(coloredUser);
         invalidate();
         repaint();
   }
@@ -93,45 +121,67 @@ public class GEWButton extends Component {
 
  
   public Color getColor() {
-      if(pressed)
-        return colorPressed;
-      else
-        return colorUnpressed;
+      
+      switch(getState()) {
+          case INPRESS:
+              return combineColors().darker();
+          case PRESSED:
+              return combineColors(); //TODO
+          case UNPRESSED:
+              return colorUnpressed;
+      }
+      return null;
   }
  
   
-  public Color getColorPressed() {
-     return colorPressed;
+  public HashSet<Color> getColoredUsers() {
+     return coloredUsersPressed;
   }
-
-  public Color getColorUnpressed() {
-      return colorUnpressed;
-  }
- 
   
-  public void setColor(Color color) {
+  public void setColor(Color color, Color userColor) {
       this.colorUnpressed = color;
-      this.colorPressed = color.darker();
+      this.colorMainUserPressed = userColor;
       invalidate();
       repaint();
   }
           
-  public void setColorPressed(Color color) {
-      this.colorPressed = color;
-      if(pressed) {
+/*  public void setColorPressed(Color color) { //TODO
+      this.colorMainUserPressed = color;
+      if(getState() == ButtonState.PRESSED) {
+        invalidate();
+        repaint();
+      }
+  }
+
+  public void setColorUnpressed(Color color) {
+      this.colorUnpressed = color;
+      if(getState() == ButtonState.UNPRESSED) {          
         invalidate();
         repaint();
       }
   }
   
-  public void setColorUnpressed(Color color) {
-      this.colorUnpressed = color;
-      if(!pressed) {          
-        invalidate();
-        repaint();
+*/  
+  private Color combineColors() {
+      
+      int r = 0, g = 0, b = 0;
+      Iterator<Color> it = coloredUsersPressed.iterator();
+      Color currentColor;
+      int nbColors = coloredUsersPressed.size();
+      if (nbColors > 0) {
+        while (it.hasNext())
+        {
+                currentColor = it.next();
+                r += currentColor.getRed();
+                g += currentColor.getGreen();
+                b += currentColor.getBlue();
+        } 
+        return new Color(r / nbColors, g / nbColors, b / nbColors);      
       }
+      else
+        return colorUnpressed;  
   }
-    
+          
   /**
    * paints the RoundButton
    */
@@ -158,12 +208,7 @@ public class GEWButton extends Component {
       Arc2D arc = new Arc2D.Double(0, 0, s, s, 0, 360, Arc2D.CHORD);
       
       //Make a darker button if pressed a normal color button otherwise
-      Color currentColor; //the current color of the button (if pressed or not)      
-      if(pressed) {
-          currentColor = colorPressed;
-      } else {
-	  currentColor = colorUnpressed;
-      }      
+      Color currentColor = getColor(); //the current color of the button (if pressed or not)   
       
       // paint the interior of the button
       g2D.setColor(currentColor);
@@ -274,24 +319,49 @@ public class GEWButton extends Component {
           case MouseEvent.MOUSE_PRESSED:
 	    // render myself inverted only if the left clic is used
             if ((e.getModifiers() & InputEvent.BUTTON1_MASK) == InputEvent.BUTTON1_MASK) {
-                pressed = !pressed;
+                if(coloredUsersPressed.contains(colorMainUserPressed))
+                {
+                    coloredUsersPressed.remove(colorMainUserPressed);
+                    inpress = true;
+                }
+                else
+                {
+                    coloredUsersPressed.add(colorMainUserPressed);
+                    inpress = true;
+                }
                 repaint();
             }
 	    break;
           case MouseEvent.MOUSE_RELEASED:
+            if(getState() == ButtonState.INPRESS) {                
+                inpress = false;
+                repaint();
+            }
+                
 	    if(actionListener != null) {
 	       actionListener.actionPerformed(new ActionEvent(
 		   this, ActionEvent.ACTION_PERFORMED, label));
 	    }
 	    break;
           case MouseEvent.MOUSE_ENTERED:
-
 	    break;
+              
           case MouseEvent.MOUSE_EXITED:
             // If a mouse button is still pressed cancel the event
             if ((e.getModifiers() & InputEvent.BUTTON1_MASK) == InputEvent.BUTTON1_MASK) {
-                pressed = !pressed;
-                repaint();
+                if(getState() == ButtonState.INPRESS) {
+                    if(coloredUsersPressed.contains(colorMainUserPressed))
+                    {
+                        coloredUsersPressed.remove(colorMainUserPressed);
+                        inpress = false;
+                    }
+                    else
+                    {
+                        coloredUsersPressed.add(colorMainUserPressed);
+                        inpress = false;
+                    }
+                    repaint();
+                }
             }
 	    break;
        }
