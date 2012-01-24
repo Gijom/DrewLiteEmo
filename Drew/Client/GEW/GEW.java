@@ -11,14 +11,12 @@ import java.awt.event.*;
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
         
 /**
  *
  * @author Guillaume Chanel
  */
-public class GEW extends DefaultCooperativeModule implements ActionListener, MouseListener, ComponentListener {
+public class GEW extends DefaultCooperativeModule implements ActionListener, ComponentListener {
 
     //UI objects definition
     static final String CODE = "GEW";
@@ -103,7 +101,7 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Mou
         for(int i=0;i < nbEmotions; i++) {
             GEWLine currLine = new GEWLine(nbPointsPerScale, emotions.get(i));
             GEW.add(currLine); //Each line contains a certain number of buttons / points
-            currLine.addToComponent(this); //Add each line of buttons to the current panel
+            currLine.addToGEW(this); //Add each line of buttons to the current panel
             
             //Find the maximum label size (vertical and horizontal)
             Dimension size = currLine.getEmotionLabel().getPreferredSize();
@@ -180,38 +178,17 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Mou
             XMLTree content = (XMLTree) data.contents().elt(0);
             System.out.println("Message content: " + content.toString());
             int lineID = Integer.parseInt(content.getAttributeValue("LineID"));
-            int buttonID = Integer.parseInt(content.getAttributeValue("ButtonID"));
+            int value = Integer.parseInt(content.getText());
 
-            //Adjust the buttons
-            if(!user.equals(getUsername()))
-                adjustButtons(lineID, buttonID, user);
+            //Get the corresponding lines and buttons
+            GEWLine currLine = GEW.get(lineID);
+            
+            //Set the line at the proper scale value
+            currLine.setScaleValue(value, getColor(user));
         }
     }
 
-    private void adjustButtons(int lineID, int buttonID, String requester)
-    {
-        //Get the color of the requestor
-        Color requesterColor = getColor(requester);
-        
-        //Get the corresponding lines and buttons
-        GEWLine currLine = GEW.get(lineID);
-        GEWButton currButton = currLine.getButtons().get(buttonID);
-
-        //Simulate the click if the requester is not the local user
-        if(!requester.equals(getUsername()))
-            currButton.clickButton(requesterColor);
-        
-        //Unpress all the buttons of the same line and from the same user (based on color)
-        //Except for the button that as been pressed in this call
-        ArrayList<GEWButton> buttonList = currLine.getButtons();
-        for(int ib = 0; ib < buttonList.size(); ib++) {
-            GEWButton b = buttonList.get(ib);
-            if( (b != currButton) & (b.getState() == GEWButton.ButtonState.PRESSED))
-                b.clickButton(getColor(requester));
-        }
-
-    }
-    
+  
     @Override
     public void componentHidden(ComponentEvent e)
     {
@@ -235,43 +212,19 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Mou
     
     @Override
     public void actionPerformed(ActionEvent ev) {
-        System.out.println("Action Performed !");
-    }
-    
-    @Override
-    public void mouseClicked(MouseEvent ev) {
-        
+                
         //Get the components associated with the event
-        GEWButton button = (GEWButton) ev.getComponent();
+        GEWButton button = (GEWButton) ev.getSource();
         GEWLine line = button.getParentLine();
         int lineID = GEW.indexOf(line);
         int buttonID = line.getButtons().indexOf(button);
-        
-        //Adjust the line to avoid several button pressed, etc.
-        adjustButtons(lineID, buttonID, getUsername());        
-        
+        Color mainUserColor = getColor(getUsername());
+     
         //Send the event corresponding to the change of state
-        eventContent = new XMLTree(line.getEmotionLabel().getText(), line.getScaleValue());
+        eventContent = new XMLTree(line.getEmotionLabel().getText(), line.getScaleValue(mainUserColor));
         eventContent.setAttribute("LineID", lineID);
         eventContent.setAttribute("ButtonID", buttonID);
         eventToSend = new XMLTree( CODE, eventContent);
         sendServer(eventToSend);
     }
-    
-    @Override
-    public void mouseExited(MouseEvent ev) {
-    }
-    
-    @Override
-    public void mouseEntered(MouseEvent ev) {
-        //System.out.println("mouse entered");
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent ev) {
-    }
-
-    @Override
-    public void mousePressed(MouseEvent ev) {
-    }    
 }
