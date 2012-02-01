@@ -90,7 +90,8 @@ public class TwoModules extends Panel implements CooperativeModule {
 		try {
 			// we use just the two first elements of the list
 			StringTokenizer st = new StringTokenizer(modules,",;:");
-			modA = Config.newInstance( st.nextToken(), cdc, false );
+
+			modA = Config.newInstance(st.nextToken() , cdc, false );
 			modB = Config.newInstance( st.nextToken(), cdc, false );
 		}
 		catch( NoSuchElementException e ) {
@@ -122,8 +123,8 @@ public class TwoModules extends Panel implements CooperativeModule {
                 setLayout(gridbag);
 		c.fill = GridBagConstraints.BOTH;
 		c.insets = new Insets( 2, 2, 2, 2);
-                c.weightx = 1.0;
-		c.weighty = 1.0;
+                c.weightx = 1;
+		c.weighty = 1;
 		c.gridwidth = 1;
     		c.gridheight = 1;
 
@@ -131,6 +132,7 @@ public class TwoModules extends Panel implements CooperativeModule {
 		c.gridx = 0; c.gridy = 0;
 		gridbag.setConstraints((Panel)modA, c);
 
+                
 	 	// chose modules orientation (vertical or horizontal)
 		dummy = central_applet.getParameter("multi.orientation");
 		

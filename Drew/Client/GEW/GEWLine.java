@@ -150,7 +150,6 @@ public class GEWLine implements ActionListener {
      */
     public void setScaleValue(int value, Color coloredUser) {
         int idButton = value - 1;
-        System.out.println("IdButton : " + idButton);
         GEWButton currButton;
         for(int ib=0;ib < GEWButtons.size();ib++) {
             currButton = GEWButtons.get(ib);
@@ -171,14 +170,21 @@ public class GEWLine implements ActionListener {
     /**
      * Set the color of the buttons by giving the rest (unpressed) button color
      * and the main user color (when pressed by the mouse user)
-     * @param color the resting color of the button
-     * @param userColor the mainUser button color 
+     * @param color the resting color of the button if null the color is not set
+     * @param userColor the mainUser button color if null the color is not set
      */
     public void setButtonsColor(Color color, Color userColor)
     {
-        buttonsColor = color;
+        if(color != null)
+            buttonsColor = color;
+        
         for(int ib = 0;ib < GEWButtons.size();ib++)
-            GEWButtons.get(ib).setColor(color, userColor);
+        {
+            if(color != null)
+                GEWButtons.get(ib).setUnpressedColor(color);
+            if(userColor != null)
+                GEWButtons.get(ib).setMainUserColor(userColor);
+        }
     }
     
     /**

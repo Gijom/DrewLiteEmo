@@ -10,11 +10,12 @@ import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 
 import Drew.Util.XMLmp.XMLTree;
+import java.util.EmptyStackException;
 
 public abstract class DefaultCooperativeModule extends Panel implements
 		CooperativeModule, TokenListener {
 	
-    private final static double base = 3.0 ;
+        private final static double base = 3.0 ;
 	private final static float fixedValue = (float)0.8;
 	private Map<String,Color> listOfUsers;
 	//private TokenRing token;
@@ -54,7 +55,7 @@ public abstract class DefaultCooperativeModule extends Panel implements
 		return isReplayer()?"":central_applet.nom;
 	}
 	
-	private void addUser(String user) {
+	protected void addUser(String user) { //GC: changed from private to pretected cause I want to add a fake user
 		float t = makeTint(listOfUsers.size());
 		Color c = new Color(Color.HSBtoRGB(t,fixedValue,fixedValue));
 		listOfUsers.put(user,c);
@@ -99,7 +100,8 @@ public abstract class DefaultCooperativeModule extends Panel implements
 	    	player = user;
 	    }
 	    if (player=="unknown") {
-	    	player=this.getUsername();
+	    	//player=this.getUsername();
+                return; //GC: do not do anything in that case
 	    }
 		if(!listOfUsers.containsKey(player)) {
 			addUser(player);
@@ -136,7 +138,7 @@ public abstract class DefaultCooperativeModule extends Panel implements
 
 			t = makeTint((int) reste) + (float) (msb / base / puiss);
 		}
-		return t ;
+		return t;
 	}
 	
 	public abstract void moduleMessageDeliver(String user, XMLTree data);

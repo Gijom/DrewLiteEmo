@@ -32,7 +32,7 @@ package Drew.Client.Grapheur;
 import java.awt.*;
 
 /** Classe des Utilisateurs du Grapheur. La classe User contient les informations sur
-    les utilisateurs : comme leur nom, leur numéro d'enregistrement, leur couleur etc.
+    les utilisateurs : comme leur nom, leur numï¿½ro d'enregistrement, leur couleur etc.
 */
 public class User {
     /** Base de calcul des couleurs */
@@ -55,14 +55,14 @@ public class User {
     */
     private float teinte;	//Teinte de la couleur
 	
-    /** Vaut <b>false</b> si l'utilisateur a été retiré de l'argumentation.
+    /** Vaut <b>false</b> si l'utilisateur a ï¿½tï¿½ retirï¿½ de l'argumentation.
     */
     private boolean engaged ;	
 
 	/** the Label in the Grapheur List */
 	private UserLabel myLabel;
     
-    /** Construit un nouvel utilisateur avec des valeurs par défaut :
+    /** Construit un nouvel utilisateur avec des valeurs par dï¿½faut :
 	<UL>
 	<LI>nom = "toto" </LI>
 	<LI>teinte = 0.0 </LI>
@@ -73,20 +73,20 @@ public class User {
 	this("toto",0,true);;
     }
     
-    /** Construit un nouvel utilisateur en spécifiant son nom.
+    /** Construit un nouvel utilisateur en spï¿½cifiant son nom.
     */
     public User(String s){
 	this(s,0,true);
     }
 
-    /** Construit un nouvel utilisateur en spécifiant son nom et son rang.
-	L'utilisateur est engagé par défaut.
+    /** Construit un nouvel utilisateur en spï¿½cifiant son nom et son rang.
+	L'utilisateur est engagï¿½ par dï¿½faut.
     */
     public User(String s, int c){
 	this(s, c, true);
     }
 
-    /** Construit un nouvel utilisateur en spécifiant son nom, son rang 
+    /** Construit un nouvel utilisateur en spï¿½cifiant son nom, son rang 
      * et son engagement.
     */
     public User(String s, int c, boolean engaged){
@@ -109,12 +109,12 @@ public class User {
 	return Color.HSBtoRGB(teinte, saturation, clarte);
     }
 
-    /** Connaître le statut d'un utilisateur (en jeu ou non)*/
+    /** Connaï¿½tre le statut d'un utilisateur (en jeu ou non)*/
     public boolean getUserEngaged() {
 	    return(engaged);
     }
     
-    /** Définir le nom d'un utilisateur */
+    /** Dï¿½finir le nom d'un utilisateur */
     public void setUserName(String s) {
 	nom = s;
     }
@@ -123,7 +123,7 @@ public class User {
         return rang;
     }
     
-    /** Définir le statut d'un utilisateur (le retirer du jeu ou non)*/
+    /** Dï¿½finir le statut d'un utilisateur (le retirer du jeu ou non)*/
     public void setUserEngaged(boolean b) {
 	engaged = b;
     }   
@@ -155,7 +155,7 @@ public class User {
 	return t ;
     }
 
-    /** Attribue une teinte particulière à l'utilisateur */
+    /** Attribue une teinte particuliï¿½re ï¿½ l'utilisateur */
     public void getTeinte(float t){
 	this.teinte = t;
     }

@@ -193,6 +193,10 @@ public class GEWButton extends Component {
   public Color getMainUserColor() {
      return colorMainUser;
   }
+
+  public Color getUnpressedColor() {
+     return colorUnpressed;
+  }
   
   /**
    * Get the list of all users that have pressed the button
@@ -213,7 +217,15 @@ public class GEWButton extends Component {
       invalidate();
       repaint();
   }
-          
+  
+  public void setMainUserColor(Color color) {
+      colorMainUser = color;
+  }
+
+  public void setUnpressedColor(Color color) {
+      colorUnpressed = color;
+  }
+  
   /**
    * Combine the colors of the different users to form a unique color that will
    * be displayed as the button color

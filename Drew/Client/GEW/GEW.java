@@ -5,7 +5,9 @@
 package Drew.Client.GEW;
 
 import Drew.Client.Util.Communication;
+import Drew.Client.Util.CooperativeModule;
 import Drew.Client.Util.DefaultCooperativeModule;
+import Drew.Client.Util.TokenRing;
 import Drew.Util.XMLmp.XMLTree;
 import java.awt.event.*;
 import java.awt.*;
@@ -19,33 +21,21 @@ import java.util.ArrayList;
 public class GEW extends DefaultCooperativeModule implements ActionListener, ComponentListener {
 
     //UI objects definition
+    static boolean matchGraheurColor = true;
     static final String CODE = "GEW";
-    private Communication central_appelt;
+    static final ArrayList<String> DEFAULT_EMOTIONS = 
+            new ArrayList<String>() {{
+                add("Admiration"); add("Love"); add("Contentment"); add("Anger"); add("Hate");
+                add("Contempt"); add("Interest"); add("Joy"); add("Pride"); add("Amusement"); add("Pleasure");
+                add("Disgust"); add("Fear"); add("Disappointment"); add("Shame"); add("Regret"); add("Guilt");
+                add("Sadness"); add("Compassion"); add("Relief");
+            }};
+
     ArrayList<GEWLine> GEW;
-    ArrayList<String> emotions = new ArrayList<String>() {{ add("Admiration");
-                                                            add("Love");
-                                                            add("Contentment");
-                                                            add("Anger");
-                                                            add("Hate");
-                                                            add("Contempt");
-                                                            add("Interest");
-                                                            add("Joy");
-                                                            add("Pride");
-                                                            add("Amusement");
-                                                            add("Pleasure");
-                                                            add("Disgust");
-                                                            add("Fear");
-                                                            add("Disappointment");
-                                                            add("Shame");
-                                                            add("Regret");
-                                                            add("Guilt");
-                                                            add("Sadness");
-                                                            add("Compassion");
-                                                            add("Relief");
-                                                          }};
-    int nbEmotions = emotions.size();
+    ArrayList<String> emotions;
+    int nbEmotions;
     int nbPointsPerScale = 5;
-    Dimension maxSizeLabels;
+    Dimension maxSizeLabels = new Dimension(0,0);
     XMLTree eventToSend = null;
     XMLTree eventContent = null;
 
@@ -72,12 +62,47 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
     @Override
     public void constructor(Communication cdc) {
         super.constructor(cdc);
-        //called after GEW()
+        //called after GEW()        
+     
+        ////////////////////////////
+        //Get the GEW parameters given in the config file
         
-        maxSizeLabels = new Dimension(0,0);
-        central_applet = cdc;
         
-       
+        //The number of points in each GEW line (scale)
+        String result = central_applet.getParameter("GEW.scalesPoints");
+        if( result != null )
+            nbPointsPerScale = Integer.parseInt(result);
+        
+        //The number of emotions in the GEW + the list of emotions
+        emotions = new ArrayList<String>();
+        result = central_applet.getParameter("GEW.nbEmotions");
+        if( result != null )
+        {
+            //set the number of emotion and reset the lists of emotions
+            nbEmotions = Integer.parseInt(result);
+            emotions.clear();
+        
+            //Search for each emotion name, if one is not found just stop the process
+            //and use the standard GEW
+            for(int ie = 0; ie < nbEmotions; ie++) {
+                result = central_applet.getParameter("GEW.emotion" + (ie+1));
+                if(result != null)
+                    emotions.add(result);
+                else //Bad parameter create the standard GEW
+                {
+                    System.err.println("Missing emotion, loading the default emotion list...");
+                    emotions.clear();
+                    emotions.addAll(DEFAULT_EMOTIONS);                    
+                    break;
+                }
+            }
+        }
+        else //nbEmotions not found in the config file
+            emotions.addAll(DEFAULT_EMOTIONS);            
+        nbEmotions = emotions.size();       
+        
+        //Add a fake user
+        addUser("nobody"); //That is to keep color consistency with the Grapheur
     }
 
     //Create all the UI components + action listeners
@@ -90,8 +115,11 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
         
         //Set the sizes of the panel
         Dimension scrDim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setMinimumSize(new Dimension(scrDim.width/2,scrDim.height/2));
-        this.setMaximumSize(new Dimension(scrDim.width/2,scrDim.height/2));
+        Dimension gewSize = new Dimension(scrDim.width/2,scrDim.height/2);
+        
+        //If the GEW is a standalone panel than set its size to half the screen
+        if(this.getParent() == null)
+            this.setSize(gewSize);
         
         //No layout to position the wheel manually
         setLayout(null);
@@ -115,6 +143,7 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
         //Update the wheel (position and sized of wheel elements)
         updateWheel();
     }
+    
     
     private void updateWheel()
     {
@@ -141,9 +170,9 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
             
             //Set the button to the correct color
             if(isFirstColor)
-                currentLine.setButtonsColor(firstLineColor, getColor(getUsername()));
+                currentLine.setButtonsColor(firstLineColor, null);
             else
-                currentLine.setButtonsColor(otherLineColor, getColor(getUsername()));
+                currentLine.setButtonsColor(otherLineColor, null);
             
             //Each line is composed of a starting Point (small button) and endPoint (big Button)
             Point2D endPoint = new Point2D.Double((Math.cos(angle) * panelRadius),(-Math.sin(angle) * panelRadius));
@@ -169,14 +198,22 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
         // TODO Auto-generated method stub
         return CODE;
     }
-
+    
     @Override
     public void moduleMessageDeliver(String user, XMLTree data) {
         // TODO Auto-generated method stub
+        //System.out.println(data);
+        
+        //This is the moment to set the main user name color
+        if(user.equals(getUsername())) {
+            for(int il=0;il < GEW.size(); il++)
+                GEW.get(il).setButtonsColor(null, getColor(user));
+        }
+        
        	if( getCode().equals( data.tag() ) ) {
             //Parse the data received
             XMLTree content = (XMLTree) data.contents().elt(0);
-            System.out.println("Message content: " + content.toString());
+            //System.out.println("Message content: " + content.toString());
             int lineID = Integer.parseInt(content.getAttributeValue("LineID"));
             int value = Integer.parseInt(content.getText());
 
