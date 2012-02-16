@@ -59,6 +59,8 @@ public class TwoModules extends Panel implements CooperativeModule {
   private CooperativeModule modA;
   private CooperativeModule modB;
 
+  private boolean horizontal;
+  
   	/**
   	* Constructeur de la fenetre de chat: definition de l'environnement graphique
   	* @param    cdc instance de l'applet de communication
@@ -99,6 +101,15 @@ public class TwoModules extends Panel implements CooperativeModule {
 			modA = Config.newInstance( "grapheur",cdc, false );
 			modB = Config.newInstance( "alex",cdc, false );
 		}
+                
+                
+                // chose modules orientation (vertical or horizontal)
+                horizontal = true;
+		String dummy = central_applet.getParameter("multi.orientation");		
+		if( dummy != null) {
+                    if( dummy.equalsIgnoreCase("vertical") )
+                        horizontal = false;
+                }
 	}
 
   	/** overload the Component method */
@@ -125,21 +136,15 @@ public class TwoModules extends Panel implements CooperativeModule {
 		c.insets = new Insets( 2, 2, 2, 2);
                 c.weightx = 1;
 		c.weighty = 1;
-		c.gridwidth = 1;
+		c.gridwidth = 2;
     		c.gridheight = 1;
 
 		// first element topleft
 		c.gridx = 0; c.gridy = 0;
 		gridbag.setConstraints((Panel)modA, c);
 
-                
-	 	// chose modules orientation (vertical or horizontal)
-		dummy = central_applet.getParameter("multi.orientation");
-		
-		if( dummy == null) dummy = "horizontal";
-
-		if( dummy.equalsIgnoreCase("horizontal") ) {
-			c.gridx = 1; c.gridy = 0;
+		if( horizontal ) {
+			c.gridx = 2; c.gridy = 0;
 			gridbag.setConstraints((Panel)modB, c);
 		}
 		else {
