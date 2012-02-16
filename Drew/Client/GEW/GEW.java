@@ -5,42 +5,55 @@
 package Drew.Client.GEW;
 
 import Drew.Client.Util.Communication;
-import Drew.Client.Util.CooperativeModule;
 import Drew.Client.Util.DefaultCooperativeModule;
-import Drew.Client.Util.TokenRing;
 import Drew.Util.XMLmp.XMLTree;
-import java.awt.event.*;
+import Drew.Client.Util.Config;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java .awt.event.ComponentListener;
+import java .awt.event.ComponentEvent;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
-        
+import javax.swing.Timer;
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author Guillaume Chanel
  */
 public class GEW extends DefaultCooperativeModule implements ActionListener, ComponentListener {
 
-    //UI objects definition
-    static boolean matchGraheurColor = true;
-    static final String CODE = "GEW";
-    static final ArrayList<String> DEFAULT_EMOTIONS = 
+    //constants
+    static final String CODE = "GEW"; //Default code of the module
+    static final ArrayList<String> DEFAULT_EMOTIONS =  //Default list of emotions if the config file is bad
             new ArrayList<String>() {{
                 add("Admiration"); add("Love"); add("Contentment"); add("Anger"); add("Hate");
                 add("Contempt"); add("Interest"); add("Joy"); add("Pride"); add("Amusement"); add("Pleasure");
                 add("Disgust"); add("Fear"); add("Disappointment"); add("Shame"); add("Regret"); add("Guilt");
                 add("Sadness"); add("Compassion"); add("Relief");
             }};
+    
+    //A message is prompted every timeTimer (ms) to ask user for input
+    Timer messageTimer;
+    int timeTimer = 3000;
+    
+    //GEW
+    ArrayList<GEWLine> GEW; //The lines of buttons of the GEW (one line per emotion)
+    ArrayList<String> emotions; //The labels (emotion) of each line
+    int nbEmotions; //the number of emotions (should be equal to length of 'emotions' and 'GEW')
+    int nbPointsPerScale = 5; //Number of buttons in each line
+    
+    //A line over two has a different color, this is represented by the two variables bellow
+    Color firstLineColor = new Color(0.65f, 0.65f, 0.65f);
+    Color otherLineColor = new Color(0.75f, 0.75f, 0.75f);
 
-    ArrayList<GEWLine> GEW;
-    ArrayList<String> emotions;
-    int nbEmotions;
-    int nbPointsPerScale = 5;
-    Dimension maxSizeLabels = new Dimension(0,0);
+    Dimension maxSizeLabels = new Dimension(0,0); //biggest height and width of labels (depends on the emotion text)
+
+    //Variable for DREW communication
     XMLTree eventToSend = null;
     XMLTree eventContent = null;
-
-    Color firstLineColor = new Color(0.65f, 0.65f, 0.65f); 
-    Color otherLineColor = new Color(0.75f, 0.75f, 0.75f);
     
     public GEW() {
         super();
@@ -51,7 +64,7 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
         this.constructor(cdc);
        
     }
-
+    
     @Override
     public void clear() {
         // TODO R�initialiser les variables n�cessaires
@@ -101,6 +114,12 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
             emotions.addAll(DEFAULT_EMOTIONS);            
         nbEmotions = emotions.size();       
         
+        //Set the correct timer for (defaults to zero as initialized, if value is
+        //zero to timer is set), the time is given in seconds
+        result = central_applet.getParameter("GEW.timeInput");
+        if( result != null )
+            timeTimer = Integer.parseInt(result) * 1000;
+        
         //Add a fake user
         addUser("nobody"); //That is to keep color consistency with the Grapheur
     }
@@ -111,7 +130,7 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
         super.init();
         
         //Leason to you own events (especially resize)
-        addComponentListener(this);        
+        addComponentListener(this);   
         
         //Set the sizes of the panel
         Dimension scrDim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -142,6 +161,15 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
         
         //Update the wheel (position and sized of wheel elements)
         updateWheel();
+        
+        //Create the timer with the proper time
+        //Lunch the message Timer: start counting the time up to the moment an emotion will be entered
+        if(timeTimer != 0)
+        {
+            messageTimer = new Timer(timeTimer, this);        
+            messageTimer.setRepeats(false);
+            messageTimer.start();
+        }        
     }
     
     
@@ -250,18 +278,50 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
     @Override
     public void actionPerformed(ActionEvent ev) {
                 
-        //Get the components associated with the event
-        GEWButton button = (GEWButton) ev.getSource();
-        GEWLine line = button.getParentLine();
-        int lineID = GEW.indexOf(line);
-        int buttonID = line.getButtons().indexOf(button);
-        Color mainUserColor = getColor(getUsername());
+        //If the event comes from a GEW button
+        if(ev.getActionCommand().equals("GEWButton"))
+        {
+            //Get the components associated with the event
+            GEWButton button = (GEWButton) ev.getSource();
+            GEWLine line = button.getParentLine();
+            int lineID = GEW.indexOf(line);
+            int buttonID = line.getButtons().indexOf(button);
+            Color mainUserColor = getColor(getUsername());
      
-        //Send the event corresponding to the change of state
-        eventContent = new XMLTree(line.getEmotionLabel().getText(), line.getScaleValue(mainUserColor));
-        eventContent.setAttribute("LineID", lineID);
-        eventContent.setAttribute("ButtonID", buttonID);
-        eventToSend = new XMLTree( CODE, eventContent);
-        sendServer(eventToSend);
+            //Send the event corresponding to the change of state
+            eventContent = new XMLTree(line.getEmotionLabel().getText(), line.getScaleValue(mainUserColor));
+            eventContent.setAttribute("LineID", lineID);
+            eventContent.setAttribute("ButtonID", buttonID);
+            eventToSend = new XMLTree( CODE, eventContent);
+            sendServer(eventToSend);
+            
+            //Cancel the timer and restart it to check for next delay between emotional information
+            if (timeTimer != 0)
+            {                
+                messageTimer.stop();
+                messageTimer.start();
+            }
+        }
+        else //Timer
+        {        
+            //stop the timer (not really needed), output the message, and retart for a new run
+            messageTimer.stop();
+            Drew.Util.Locale comment = new Drew.Util.Locale( "Drew.Locale.Client.GEW", Config.getLocale() );
+            JOptionPane.showMessageDialog(null,comment.getString("InputMessage"));
+            messageTimer.start();
+        }
+    }
+
+
+    @Override
+    public void stop() {
+        //Just stop the timer
+        if(timeTimer != 0)
+            messageTimer.stop();
+    }
+    
+    @Override
+    public void destroy() {
+        stop(); //the component should be stoped
     }
 }

@@ -37,6 +37,7 @@ public class GEWButton extends Component {
   public static final Color DEFAULT_COLOR = Color.LIGHT_GRAY;    
   public static final int BORDER_TICKNESS = 2;
   public static enum ButtonState {PRESSED, UNPRESSED, INPRESS};
+  public static String ID = "GEWButton";
   
   private ActionListener actionListener;        // Post action events to listeners
   private String label;                         // The Button's text
@@ -434,7 +435,7 @@ public class GEWButton extends Component {
                 
                 //Send this action
                 if(actionListener != null) {               
-                    actionListener.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, label));
+                    actionListener.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, ID));
                 }
             }
 	    break;

@@ -11,9 +11,10 @@ drew.graph.standalone=false
 drew.Xgraph.interactive=true
 drew.graph.participate=true
 
-drew.multi.orientation=vertical
+drew.multi.orientation=horizontal
 drew.multi.modules=grapheur,GEW
 
+drew.GEW.timeInput=3
 drew.GEW.scalesPoints=5
 drew.GEW.nbEmotions=20
 drew.GEW.emotion1=test1
@@ -38,7 +39,7 @@ drew.GEW.emotion19=test4
 drew.GEW.emotion20=test5
 
 
-drew.GraphGEW=true
+drew.GraphGEW=false
 drew.GEW=false
 drew.chat=false
 drew.whiteboard=false
@@ -47,7 +48,7 @@ drew.texte=false
 drew.grapheur=false
 drew.multi=false
 drew.graphchat=false
-drew.2modules=false
+drew.2modules=true
 drew.alex=false
 drew.vote=false
 drew.viewboard=false
