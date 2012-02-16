@@ -60,6 +60,7 @@ public class TwoModules extends Panel implements CooperativeModule {
   private CooperativeModule modB;
 
   private boolean horizontal;
+  private double ratioModA;
   
   	/**
   	* Constructeur de la fenetre de chat: definition de l'environnement graphique
@@ -101,14 +102,26 @@ public class TwoModules extends Panel implements CooperativeModule {
 			modA = Config.newInstance( "grapheur",cdc, false );
 			modB = Config.newInstance( "alex",cdc, false );
 		}
-                
-                
+               
                 // chose modules orientation (vertical or horizontal)
                 horizontal = true;
 		String dummy = central_applet.getParameter("multi.orientation");		
 		if( dummy != null) {
                     if( dummy.equalsIgnoreCase("vertical") )
                         horizontal = false;
+                }
+                
+                // Ratio of the first module
+		dummy = central_applet.getParameter("multi.ratioFirstModule");		
+                try
+                {
+                    ratioModA = Float.parseFloat(dummy);
+                    if (ratioModA >= 1)
+                        ratioModA = 0.5;
+                }
+                catch(Exception e) //null string, or not integer format
+                {
+                    ratioModA = 0.5;
                 }
 	}
 
@@ -126,29 +139,26 @@ public class TwoModules extends Panel implements CooperativeModule {
 	{
         	// set up graphical interface
                 // and add modules to the Component.
-
-		String dummy = null;
          	GridBagLayout gridbag = new GridBagLayout();
                 GridBagConstraints c = new GridBagConstraints();
 
                 setLayout(gridbag);
 		c.fill = GridBagConstraints.BOTH;
 		c.insets = new Insets( 2, 2, 2, 2);
-                c.weightx = 1;
-		c.weighty = 1;
-		c.gridwidth = 2;
-    		c.gridheight = 1;
-
-		// first element topleft
-		c.gridx = 0; c.gridy = 0;
-		gridbag.setConstraints((Panel)modA, c);
-
+                c.weightx = ratioModA;
+                c.weighty = ratioModA;
+                c.gridx = 0;
+                c.gridy = 0;
+                gridbag.setConstraints((Panel)modA, c);
+                
+                c.weightx = 1-ratioModA;
+                c.weighty = 1-ratioModA;
 		if( horizontal ) {
-			c.gridx = 2; c.gridy = 0;
+                        c.gridx = 1; //GridBagConstraints.REMAINDER;
 			gridbag.setConstraints((Panel)modB, c);
 		}
 		else {
-			c.gridx = 0; c.gridy = 1;
+                        c.gridy = 1; //GridBagConstraints.REMAINDER;
 			gridbag.setConstraints((Panel)modB, c);
 		}
 		add((Panel)modA); modA.init();

@@ -202,11 +202,11 @@ public class Grapheur
 	}
 
 	public Dimension getPreferredSize() {
-		return new Dimension(500,500);
+		return getMinimumSize();
 	}
 
 	public synchronized Dimension getMinimumSize(){
-		return  new Dimension(500,500);
+		return  new Dimension(350,250);
 	}
 
 	/** Reconstruit la liste (graphique et logique) des utilisateurs engagï¿½s 
@@ -683,7 +683,7 @@ public class Grapheur
 		nvFleche.setFont(police);
 		nvFleche.setActionCommand("nvfleche");
 		nvFleche.addActionListener(argu);
-		//add(nvFleche,c); // gdyke 07.2007 pas de crŽation de nouvelles boites
+		//add(nvFleche,c); // gdyke 07.2007 pas de crï¿½ation de nouvelles boites
 
 		c.fill = GridBagConstraints.HORIZONTAL ;
 		c.anchor = GridBagConstraints.SOUTHWEST ;

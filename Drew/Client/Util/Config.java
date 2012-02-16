@@ -43,7 +43,6 @@ public class Config {
 */
 
 static private String T[][] = {
-        {"GraphGEW",    "GraphGEW",     "Drew.Client.MultiModules.GraphGEW"},    
         {"GEW",         "GEW",          "Drew.Client.GEW.GEW"},
 	{"chat",        "chat",         "Drew.Client.Chat.Chat_fenetre"},
 	{"viewboard",   "viewboard",    "Drew.Client.ViewBoard.ViewBoard"},

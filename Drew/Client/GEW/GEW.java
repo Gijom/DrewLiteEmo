@@ -124,6 +124,19 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
         addUser("nobody"); //That is to keep color consistency with the Grapheur
     }
 
+    @Override
+    public Dimension getPreferredSize()
+    {
+        return getMinimumSize();
+    }
+
+    @Override
+    public synchronized Dimension getMinimumSize()
+    {
+	return  new Dimension(400, 400);
+    }
+    
+    
     //Create all the UI components + action listeners
     @Override
     public void init() {
@@ -176,7 +189,7 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
     private void updateWheel()
     {
         //Determine several sizes with respect to the size of the Panel
-        Dimension panelSize = getPreferredSize();
+        Dimension panelSize = getSize();
         panelSize.setSize(new Dimension(panelSize.width,panelSize.height)); //Quick and dirty
         double panelRadius = Math.min(panelSize.width - maxSizeLabels.width*2, panelSize.height  - maxSizeLabels.height*2) / 2; //Biggest drawable circle in the panel (include lable size for this circle)
         double centralRadius = panelRadius / 4; //Central hole to put the "no emotion" button

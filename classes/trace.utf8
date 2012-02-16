@@ -1,267 +1,178 @@
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328545650134</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328545650174</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328545655941</date></time><GEW><test1 LineID="0" ButtonID="4">0</test1></GEW></event>
-<event><time><date>1328545662521</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328545738963</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328545739006</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328545751453</date></time><GEW><test4 LineID="18" ButtonID="4">5</test4></GEW></event>
-<event><time><date>1328545754421</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328546228923</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328546228951</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328546278173</date></time><GEW><test1 LineID="0" ButtonID="4">5</test1></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328546280269</date></time><GEW><test2 LineID="1" ButtonID="2">3</test2></GEW></event>
-<event><time><date>1328546394969</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328546402299</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328546402334</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328546419245</date></time><GEW><test2 LineID="16" ButtonID="2">3</test2></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328546420669</date></time><GEW><test1 LineID="15" ButtonID="3">4</test1></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328546421949</date></time><GEW><test1 LineID="15" ButtonID="4">5</test1></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328546423253</date></time><GEW><test1 LineID="15" ButtonID="2">3</test1></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328546424549</date></time><GEW><test4 LineID="13" ButtonID="1">2</test4></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328546425941</date></time><GEW><test1 LineID="5" ButtonID="0">1</test1></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1328546427117</date></time><GEW><test5 LineID="4" ButtonID="3">4</test5></GEW></event>
-<event><time><date>1328546441245</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321508345</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321508511</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321508513</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event><time><date>1329321525377</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321531146</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321531207</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321531207</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321537482</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329321538879</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321679625</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321679700</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321679700</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321693151</date></time><GEW><test2 LineID="16" ButtonID="4">5</test2></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321696735</date></time><GEW><test2 LineID="16" ButtonID="4">0</test2></GEW></event>
-<event><time><date>1329321733002</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321736218</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321736290</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321736291</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321749145</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329321750527</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321762857</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321762918</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321762919</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321771591</date></time><GEW><test5 LineID="19" ButtonID="2">3</test5></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321772223</date></time><GEW><test5 LineID="19" ButtonID="2">0</test5></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321773815</date></time><GEW><test5 LineID="19" ButtonID="1">2</test5></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321774431</date></time><GEW><test5 LineID="19" ButtonID="1">0</test5></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321794917</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329321795391</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321860306</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321860389</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321860389</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321866511</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329321866516</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329321866516</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329322067714</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329322067778</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329322067778</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event><time><date>1329322090202</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329322205706</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329322205784</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329322205786</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event><time><date>1329322255130</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329322257713</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329322257804</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329322257804</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329322260538</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329322261319</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329322932666</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="zrdz"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329322932730</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329322932734</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329322948591</date></time><GEW><test4 LineID="18" ButtonID="2">3</test4></GEW></event>
-<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329322949831</date></time><GEW><test3 LineID="2" ButtonID="3">4</test3></GEW></event>
-<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329322951407</date></time><GEW><test5 LineID="9" ButtonID="1">2</test5></GEW></event>
-<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329322952919</date></time><GEW><test2 LineID="11" ButtonID="0">1</test2></GEW></event>
-<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329322954263</date></time><GEW><test5 LineID="14" ButtonID="4">5</test5></GEW></event>
-<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329322955551</date></time><GEW><test4 LineID="8" ButtonID="4">5</test4></GEW></event>
-<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329322956943</date></time><GEW><test5 LineID="4" ButtonID="4">5</test5></GEW></event>
-<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329322958327</date></time><GEW><test3 LineID="2" ButtonID="1">2</test3></GEW></event>
-<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329322959855</date></time><GEW><test3 LineID="2" ButtonID="3">4</test3></GEW></event>
-<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329322961223</date></time><GEW><test5 LineID="4" ButtonID="3">4</test5></GEW></event>
-<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329322962647</date></time><GEW><test5 LineID="4" ButtonID="2">3</test5></GEW></event>
-<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329322964095</date></time><GEW><test5 LineID="4" ButtonID="4">5</test5></GEW></event>
-<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329322970380</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329322971328</date></time><control><info>zrdz nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329323294010</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329323294073</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329323294077</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329323306255</date></time><GEW><test2 LineID="11" ButtonID="3">4</test2></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329323308162</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329323309096</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329323339626</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329323339690</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329323339690</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329323341135</date></time><GEW><test3 LineID="12" ButtonID="3">4</test3></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329323341663</date></time><GEW><test3 LineID="12" ButtonID="4">5</test3></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329323342047</date></time><GEW><test3 LineID="12" ButtonID="3">4</test3></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329323342735</date></time><GEW><test3 LineID="12" ButtonID="4">5</test3></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329323343750</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329323345295</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324184202</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324184264</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324184267</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324224644</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329324226248</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324236370</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324236431</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324236431</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324266761</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329324267632</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324273066</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324273132</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324273134</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324282377</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329324283008</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324408866</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324408935</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324408939</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324418433</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329324419360</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324484634</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324484698</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324484699</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324492711</date></time><GEW><test3 LineID="17" ButtonID="4">5</test3></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324493844</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329324494640</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324505073</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324505141</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324505145</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324510889</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329324511808</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324980090</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324980154</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324980155</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329324986177</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329324987600</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329325032810</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329325032875</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329325032882</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329325034196</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329325042176</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329325056978</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329325057053</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329325057058</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329325058690</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329325062032</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329382402708</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329382402939</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329382402940</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329382423228</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329382436810</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329382583948</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329382584021</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329382584021</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329382624069</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329382669760</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329382669760</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329382680443</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329382681578</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329382690047</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329382690097</date></time><server><syn/></server></event>
-<event><time><date>1329382716130</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329383654420</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="zrdz"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event><time><date>1329383654446</date></time><control><info>zrdz nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384052596</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384052674</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384052674</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384064294</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384067492</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384078296</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384078296</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384096556</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384102903</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384102903</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384114739</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384121133</date></time><server><syn/></server></event>
-<event><time><date>1329384143602</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384153988</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384153990</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384155653</date></time><server><syn/></server></event>
-<event><time><date>1329384158922</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384508524</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384508602</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384508602</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384519768</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329384522894</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384537900</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384537966</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384537966</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384552396</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329384555486</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384756164</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384756239</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384756239</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384772660</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329384775954</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384807460</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384807523</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384807523</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329384819084</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329384832202</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329385377172</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329385377259</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329385377259</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329385432508</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329385473994</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329385827285</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329385827365</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329385827365</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329385844752</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329385845586</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386540109</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386540177</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386540177</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386542237</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329386546300</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386713829</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386713893</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386713897</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386715558</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329386719458</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386765933</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386765996</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386765996</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386767591</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329386768858</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386838156</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386838217</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386838222</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386848572</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386856619</date></time><server><syn/></server></event>
-<event><time><date>1329386877914</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386936496</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386936526</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329386948368</date></time><server><syn/></server></event>
-<event><time><date>1329386963778</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387390317</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387390416</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387390417</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387411999</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329387413482</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387442117</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387442179</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387442179</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387461762</date></time><GEW><test4 LineID="8" ButtonID="1">2</test4></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387462210</date></time><GEW><test4 LineID="8" ButtonID="2">3</test4></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387462994</date></time><GEW><test4 LineID="8" ButtonID="2">0</test4></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387463362</date></time><GEW><test4 LineID="8" ButtonID="1">2</test4></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387464074</date></time><GEW><test4 LineID="8" ButtonID="1">0</test4></GEW></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387477451</date></time><grapheur><argument id="test.120.1" action="create" type="box" support="true"><name><text lang="fr">Nouvelle boîte</text></name><comment><text lang="fr">Peux-tu en dire un peu plus ?</text></comment></argument></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387478442</date></time><grapheur><argument id="test.120.1"><position x="172" y="313"/></argument></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387481544</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329387548096</date></time><control><info>test nest plus des notres</info></control></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387551725</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387551804</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387551807</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387553581</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387568771</date></time><server><syn/></server></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387568771</date></time><grapheur><engaged status="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387575875</date></time><grapheur><argument id="test.120.1" edit="true"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387582403</date></time><grapheur><argument id="test.120.1" edit="false"/></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387582403</date></time><grapheur><argument id="test.120.1"><name><text lang="fr">Nouvelle boîte</text></name><comment><text lang="fr">bof</text></comment></argument></grapheur></event>
-<event mark="http test step 1" user="test" room="Hall"><time><date>1329387609984</date></time><grapheur><engaged status="false"/></grapheur></event>
-<event><time><date>1329387611234</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329394950430</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329394950499</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329394950540</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329394961582</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329394962676</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329394984662</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329394984720</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329394984721</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395002744</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329395003620</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395204326</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395204384</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395204389</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395246464</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395251823</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395251824</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395273052</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329395274053</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395301670</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395301726</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395301727</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395303558</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395312927</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395312929</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395330612</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329395331300</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="t" room="Hall"><time><date>1329395353892</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="t"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="t" room="Hall"><time><date>1329395353936</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="t" room="Hall"><time><date>1329395353937</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="t" room="Hall"><time><date>1329395359668</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329395360308</date></time><control><info>t nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395376430</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395376490</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395376491</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395378416</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395385164</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395385165</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395400644</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395404445</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395404445</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395435173</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329395437394</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395481300</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395481347</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395481349</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395487156</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329395487917</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395497382</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395497441</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395497444</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395498630</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395509845</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395509846</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395530086</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329395531644</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329395555742</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="zrdz"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329395555801</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329395555801</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329395557932</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event mark="http test step 1" user="zrdz" room="Hall"><time><date>1329395558913</date></time><server><syn/></server></event>
+<event><time><date>1329395572353</date></time><control><info>zrdz nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395585654</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395585720</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395585720</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395587878</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395589152</date></time><server><syn/></server></event>
+<event><time><date>1329395605500</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395657990</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395658056</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395658057</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395670424</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329395672005</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395709398</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395709457</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395709458</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395720345</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329395721892</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395736238</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395736301</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395736302</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395858337</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329395859756</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395963278</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395963338</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395963338</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395964502</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329395965252</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395977638</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395977703</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329395977703</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396013281</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329396014020</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396024910</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396024969</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396024969</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396054118</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329396054876</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396102750</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396102807</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396102808</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396120728</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396122867</date></time><server><syn/></server></event>
+<event><time><date>1329396130244</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396478758</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396478821</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396478822</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396484424</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329396485740</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396518918</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396518979</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396518979</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396527112</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329396536648</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396540974</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396541037</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396541037</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396548032</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329396549364</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396594783</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396594844</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396594848</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396599000</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329396599942</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396609926</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396609986</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396609987</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396615256</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329396616704</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396663270</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396663329</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396663329</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396667569</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329396668340</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396711014</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396711075</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396711075</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396714352</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329396725806</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396730022</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396730080</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396730081</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396742336</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329396743268</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396756366</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396756424</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396756424</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396763056</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329396763780</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396778190</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396778248</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396778248</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396805000</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329396806413</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396814550</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396814611</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396814611</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396824008</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329396826568</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396839702</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396839765</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396839765</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329396880781</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329396881556</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329397178847</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329397178932</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329397178933</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329397203361</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329397205156</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329397231822</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329397231886</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329397231886</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329397238984</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329397240212</date></time><control><info>test nest plus des notres</info></control></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329397254582</date></time><server><connection state="new"><host>129.194.204.62</host><identity user="test"/><room where="Hall"/><type event="room"/><subject>trace.utf8</subject><language lang="fr"/></connection></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329397254647</date></time><server><syn/></server></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329397254647</date></time><grapheur><engaged status="true"/></grapheur></event>
+<event mark="http test step 1" user="test" room="Hall"><time><date>1329397430952</date></time><grapheur><engaged status="false"/></grapheur></event>
+<event><time><date>1329397431692</date></time><control><info>test nest plus des notres</info></control></event>
