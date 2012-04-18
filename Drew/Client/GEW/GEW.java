@@ -291,8 +291,9 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
     @Override
     public void actionPerformed(ActionEvent ev) {
                 
-        //If the event comes from a GEW button
-        if(ev.getActionCommand().equals("GEWButton"))
+        //If the event comes from a GEW button        
+        String action = ev.getActionCommand();
+        if((action != null) && (action.equals("GEWButton")))
         {
             //Get the components associated with the event
             GEWButton button = (GEWButton) ev.getSource();

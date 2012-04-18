@@ -21,7 +21,7 @@
 
 /*
  * File: Argumentation.java
- * Author: Matthieu Quignard
+ * Author: Matthieu Quignard, Guillaume Chanel (bug correction)
  *
  * $Id: Argumentation.java,v 1.51.2.1 2007/07/06 15:46:22 collins Exp $
  */
@@ -1342,8 +1342,10 @@ void askMoreInfo(Argument a, boolean isaBox, boolean createNew) {
 private void updateArgMoreInfo(Argument a){
     if ((miDialog != null) &&
 	(miDialog.isVisible()) &&
-	(miDialog.getCurrentArgument().equals(a)))
+        (miDialog.getCurrentArgument() != null) &&
+	(miDialog.getCurrentArgument().equals(a))) {
 	miDialog.update(a);
+    }
 }
 
 void addLinkedArgument(Argument a, boolean removeMe){
