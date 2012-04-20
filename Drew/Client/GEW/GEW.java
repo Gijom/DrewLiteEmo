@@ -27,6 +27,8 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
 
     //constants
     static final String CODE = "GEW"; //Default code of the module
+    static final String EMOTION_CODE = "Emotion";
+    static final String MESSAGE_CODE = "InputMessage";
     static final ArrayList<String> DEFAULT_EMOTIONS =  //Default list of emotions if the config file is bad
             new ArrayList<String>() {{
                 add("Admiration"); add("Love"); add("Contentment"); add("Anger"); add("Hate");
@@ -38,6 +40,7 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
     //A message is prompted every timeTimer (ms) to ask user for input
     Timer messageTimer;
     int timeTimer = 3000;
+    boolean dispMessageBegin = false;
     
     //GEW
     ArrayList<GEWLine> GEW; //The lines of buttons of the GEW (one line per emotion)
@@ -120,6 +123,11 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
         if( result != null )
             timeTimer = Integer.parseInt(result) * 1000;
         
+        //Check if the emotion annotation message should be displayed in the beginning
+        result = central_applet.getParameter("GEW.dispMessageBegin");
+        if(result != null )
+            dispMessageBegin = result.equalsIgnoreCase("true");
+        
         //Add a fake user
         addUser("nobody"); //That is to keep color consistency with the Grapheur
     }
@@ -181,7 +189,10 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
         {
             messageTimer = new Timer(timeTimer, this);        
             messageTimer.setRepeats(false);
+            messageTimer.setActionCommand("MessageTimer");
             messageTimer.start();
+            if(dispMessageBegin) //Simulate event to display the first message immediately
+                this.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, messageTimer.getActionCommand()));
         }        
     }
     
@@ -251,18 +262,24 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
                 GEW.get(il).setButtonsColor(null, getColor(user));
         }
         
+        //If this is a GEW message
        	if( getCode().equals( data.tag() ) ) {
-            //Parse the data received
-            XMLTree content = (XMLTree) data.contents().elt(0);
-            //System.out.println("Message content: " + content.toString());
-            int lineID = Integer.parseInt(content.getAttributeValue("LineID"));
-            int value = Integer.parseInt(content.getText());
 
-            //Get the corresponding lines and buttons
-            GEWLine currLine = GEW.get(lineID);
+            //If the message is an Emotion message than buttons should be changed
+            if(data.getAttributeValue("Type", "").equals(EMOTION_CODE)) {
+                
+                //Parse the data received
+                XMLTree content = (XMLTree) data.contents().elt(0);
+                //System.out.println("Message content: " + content.toString());
+                int lineID = Integer.parseInt(content.getAttributeValue("LineID"));
+                int value = Integer.parseInt(content.getText());
+
+                //Get the corresponding lines and buttons
+                GEWLine currLine = GEW.get(lineID);
             
-            //Set the line at the proper scale value
-            currLine.setScaleValue(value, getColor(user));
+                //Set the line at the proper scale value
+                currLine.setScaleValue(value, getColor(user));
+            }
         }
     }
 
@@ -307,6 +324,7 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
             eventContent.setAttribute("LineID", lineID);
             eventContent.setAttribute("ButtonID", buttonID);
             eventToSend = new XMLTree( CODE, eventContent);
+            eventToSend.setAttribute("Type", EMOTION_CODE);
             sendServer(eventToSend);
             
             //Cancel the timer and restart it to check for next delay between emotional information
@@ -320,8 +338,15 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
         {        
             //stop the timer (not really needed), output the message, and retart for a new run
             messageTimer.stop();
+
+            //Generate a message to report for the message event
+            eventToSend = new XMLTree( CODE );
+            eventToSend.setAttribute("Type", "AnnotationReminder");
+            sendServer(eventToSend);
+            
+            //Generate the message
             Drew.Util.Locale comment = new Drew.Util.Locale( "Drew.Locale.Client.GEW", Config.getLocale() );
-            JOptionPane.showMessageDialog(null,comment.getString("InputMessage"));
+            JOptionPane.showMessageDialog(null,comment.getString(MESSAGE_CODE));
             messageTimer.start();
         }
     }
