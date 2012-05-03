@@ -40,6 +40,7 @@ public class GEW_fr extends ListResourceBundle {
 		// LOCALIZE THIS
 		{"WindowTitle", "Outil d'awarness emotionel basé sur la GEW"},
                 {"InputMessage", "N'oubliez d'entrer l'\u00e9motion que vous ressentez, faites le maintenant !"},
+                {"NoEmotionButton", "RAZ"},
 		// END OF MATERIAL TO LOCALIZE
 	};
 }

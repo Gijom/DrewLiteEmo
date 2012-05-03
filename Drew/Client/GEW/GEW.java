@@ -17,7 +17,10 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import javax.swing.Timer;
 import javax.swing.JOptionPane;
-
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.border.Border;
 
 /**
  *
@@ -29,6 +32,7 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
     static final String CODE = "GEW"; //Default code of the module
     static final String EMOTION_CODE = "Emotion";
     static final String MESSAGE_CODE = "InputMessage";
+    static final String NOEMOTION_CODE = "NoEmotion";
     static final ArrayList<String> DEFAULT_EMOTIONS =  //Default list of emotions if the config file is bad
             new ArrayList<String>() {{
                 add("Admiration"); add("Love"); add("Contentment"); add("Anger"); add("Hate");
@@ -43,6 +47,7 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
     boolean dispMessageBegin = false;
     
     //GEW
+    JButton noEmotionButton;
     ArrayList<GEWLine> GEW; //The lines of buttons of the GEW (one line per emotion)
     ArrayList<String> emotions; //The labels (emotion) of each line
     int nbEmotions; //the number of emotions (should be equal to length of 'emotions' and 'GEW')
@@ -164,6 +169,14 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
         //No layout to position the wheel manually
         setLayout(null);
         
+        //Create the "No emotion" central button for wheel reset
+        Drew.Util.Locale comment = new Drew.Util.Locale( "Drew.Locale.Client.GEW", Config.getLocale() );
+        noEmotionButton = new JButton(comment.getString("NoEmotionButton"));
+        noEmotionButton.setBackground(firstLineColor.brighter());
+        noEmotionButton.setActionCommand(NOEMOTION_CODE);
+        noEmotionButton.addActionListener(this);
+        this.add(noEmotionButton);
+        
         //Create the Lines with the appropriate number of button per line
         GEW = new ArrayList<GEWLine>();
         for(int i=0;i < nbEmotions; i++) {
@@ -189,7 +202,7 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
         {
             messageTimer = new Timer(timeTimer, this);        
             messageTimer.setRepeats(false);
-            messageTimer.setActionCommand("MessageTimer");
+            messageTimer.setActionCommand(MESSAGE_CODE);
             messageTimer.start();
             if(dispMessageBegin) //Simulate event to display the first message immediately
                 this.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, messageTimer.getActionCommand()));
@@ -206,6 +219,11 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
         double centralRadius = panelRadius / 4; //Central hole to put the "no emotion" button
         Point2D panelCenter = new Point2D.Double( ((double) panelSize.width) / 2, ((double) panelSize.height) / 2); //Point at the center of the panel
         int maxButtonRadius = (int) Math.min(panelRadius*Math.PI / (2*nbEmotions),30); //The radius of the biggest button is 30 except if it is to big (two emotions buttons overlap)
+        
+        //Position the no emotion central button for wheel reset
+        int noEmotionButtonSize = Math.max((int) (centralRadius * Math.sqrt(2) * 0.75) , 5);
+        noEmotionButton.setSize(noEmotionButtonSize , noEmotionButtonSize);
+        noEmotionButton.setLocation(PointUtil.toPoint(PointUtil.add(panelCenter, -(noEmotionButtonSize / 2))));
         
         //Position each button according to the number of emotions and their size + add them to the Panel
         //This is done line by line, which all have a different angle
@@ -305,49 +323,80 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
     {
     }
     
+    private void sendMessageEmotion(String emotion, int value, int lineID, int buttonID)
+    {
+        eventContent = new XMLTree(emotion, value);
+        eventContent.setAttribute("LineID", lineID);
+        eventContent.setAttribute("ButtonID", buttonID);
+        eventToSend = new XMLTree( CODE, eventContent);
+        eventToSend.setAttribute("Type", EMOTION_CODE);
+        sendServer(eventToSend);
+    }
+        
     @Override
     public void actionPerformed(ActionEvent ev) {
                 
         //If the event comes from a GEW button        
         String action = ev.getActionCommand();
-        if((action != null) && (action.equals("GEWButton")))
-        {
-            //Get the components associated with the event
-            GEWButton button = (GEWButton) ev.getSource();
-            GEWLine line = button.getParentLine();
-            int lineID = GEW.indexOf(line);
-            int buttonID = line.getButtons().indexOf(button);
-            Color mainUserColor = getColor(getUsername());
+        if(action != null) {
+            if(action.equals("GEWButton"))
+            {
+                //Get the components associated with the event
+                GEWButton button = (GEWButton) ev.getSource();
+                GEWLine line = button.getParentLine();
+                int lineID = GEW.indexOf(line);
+                int buttonID = line.getButtons().indexOf(button);
+                Color mainUserColor = getColor(getUsername());
      
-            //Send the event corresponding to the change of state
-            eventContent = new XMLTree(line.getEmotionLabel().getText(), line.getScaleValue(mainUserColor));
-            eventContent.setAttribute("LineID", lineID);
-            eventContent.setAttribute("ButtonID", buttonID);
-            eventToSend = new XMLTree( CODE, eventContent);
-            eventToSend.setAttribute("Type", EMOTION_CODE);
-            sendServer(eventToSend);
+                //Send the event corresponding to the change of state
+                sendMessageEmotion(line.getEmotionLabel().getText(), line.getScaleValue(mainUserColor), lineID, buttonID);
             
-            //Cancel the timer and restart it to check for next delay between emotional information
-            if (timeTimer != 0)
-            {                
+                //Cancel the timer and restart it to check for next delay between emotional information
+                if (timeTimer != 0)
+                {                
+                    messageTimer.stop();
+                    messageTimer.start();
+                }   
+            }
+            else if(action.equals(MESSAGE_CODE)) //Timer
+            {        
+                //stop the timer (not really needed), output the message, and retart for a new run
                 messageTimer.stop();
+
+                //Generate a message to report for the message event
+                eventToSend = new XMLTree( CODE );
+                eventToSend.setAttribute("Type", MESSAGE_CODE);
+                sendServer(eventToSend);
+            
+                //Generate the message
+                Drew.Util.Locale comment = new Drew.Util.Locale( "Drew.Locale.Client.GEW", Config.getLocale() );
+                JOptionPane.showMessageDialog(null,comment.getString(MESSAGE_CODE));
                 messageTimer.start();
             }
-        }
-        else //Timer
-        {        
-            //stop the timer (not really needed), output the message, and retart for a new run
-            messageTimer.stop();
-
-            //Generate a message to report for the message event
-            eventToSend = new XMLTree( CODE );
-            eventToSend.setAttribute("Type", "AnnotationReminder");
-            sendServer(eventToSend);
-            
-            //Generate the message
-            Drew.Util.Locale comment = new Drew.Util.Locale( "Drew.Locale.Client.GEW", Config.getLocale() );
-            JOptionPane.showMessageDialog(null,comment.getString(MESSAGE_CODE));
-            messageTimer.start();
+            else if(action.equals(NOEMOTION_CODE)) {
+                //Get the main user color
+                Color mainUserColor = getColor(getUsername());
+                
+                //Reset all lines:
+                //For each line check the scale value for main user and send
+                //a new value of 0 only if the current value is not 0
+                for(int lineID=0;lineID < GEW.size();lineID++) {
+                    GEWLine currLine = GEW.get(lineID);
+                    int currentValue = currLine.getScaleValue(mainUserColor);                    
+                    if(currentValue != 0) {
+                        //Not very nice but well (ButtonID is not very well computed...)
+                        sendMessageEmotion(currLine.getEmotionLabel().getText(), 0, lineID, currentValue-1);
+                        
+                        //Cancel the timer and restart it to check for next delay between emotional information
+                        if (timeTimer != 0)
+                        {                
+                            messageTimer.stop();
+                            messageTimer.start();
+                        }                        
+                    }
+                }
+            }
+                
         }
     }
 

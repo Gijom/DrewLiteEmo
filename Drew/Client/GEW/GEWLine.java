@@ -106,14 +106,15 @@ public class GEWLine implements ActionListener {
 
     /**
      * Unclick all the buttons that have been pressed by the user coloredUser in the line
-     * @param coloredUser 
+     * @param coloredUser - the user who ask for a reset (only the colors of this user will be removed)
+     * @param action - should an action be triggered for each reseted button ? (true / false)
      */
-    public void reset(Color coloredUser) {
+    public void reset(Color coloredUser, boolean action) {
         GEWButton currButton;
         for(int ib=0;ib < GEWButtons.size();ib++) {
             currButton = GEWButtons.get(ib);
             if(currButton.isPressed(coloredUser))
-                currButton.clickButton(coloredUser);
+                currButton.clickButton(coloredUser, action);
         }
     }
     
@@ -144,8 +145,8 @@ public class GEWLine implements ActionListener {
      * Set the scale value by pushing the correct buttons, for instance if scale value value is zero, no
      * button is pushed, if scale value is 3 the third button is pushed
      * This is done for the chosen coloredUser
-     * @param value
-     * @param coloredUser 
+     * @param value - the button to activate
+     * @param coloredUser - the user that activate the button
      * @see getScaleValue
      */
     public void setScaleValue(int value, Color coloredUser) {
@@ -156,12 +157,12 @@ public class GEWLine implements ActionListener {
             if(ib == idButton)
             {
                 if(!currButton.isPressed(coloredUser))
-                    currButton.clickButton(coloredUser);
+                    currButton.clickButton(coloredUser, false);
             }
             else
             {
                 if (currButton.isPressed(coloredUser))
-                    currButton.clickButton(coloredUser);
+                    currButton.clickButton(coloredUser, false);
             }
         }
         
@@ -333,8 +334,8 @@ public class GEWLine implements ActionListener {
             currentButton = GEWButtons.get(ib);
             Color mainColor = currentButton.getMainUserColor();
             if(currentButton.isPressed(mainColor) & (currentButton != ev.getSource()))
-                currentButton.clickButton(mainColor);
+                currentButton.clickButton(mainColor, false);
         }        
     }
-    
+  
 }

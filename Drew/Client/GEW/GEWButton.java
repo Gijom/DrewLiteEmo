@@ -139,15 +139,25 @@ public class GEWButton extends Component {
   }  
   
   /**
-   * Simulate a click on the button by the user coloredUser. The call to this function does
-   * not trigger any ActionEvent
-   * @param coloredUser 
+   * Simulate a click on the button by the user coloredUser. The call to this function triggers
+   * an ActionEvent only if action == true
+   * @param coloredUser - the color of the user who clicked the button
+   * @param action - should an action be triggered ? (true / false)
    */
-  public void clickButton(Color coloredUser) { //TODO
+  public void clickButton(Color coloredUser, boolean action) { //TODO
+        
+        //Deal with button pressed / unpressed
         if(coloredUsersPressed.contains(coloredUser))
             coloredUsersPressed.remove(coloredUser);
         else
             coloredUsersPressed.add(coloredUser);
+        
+        //Send an action event if requested
+        if(action)
+            if(actionListener != null)              
+                actionListener.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, ID));
+        
+        //repaint button
         invalidate();
         repaint();
   }
