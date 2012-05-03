@@ -40,6 +40,7 @@ public class GEW extends ListResourceBundle {
 		// LOCALIZE THIS
 		{"WindowTitle", "GEW based emotion awareness tool"},
                 {"InputMessage", "Do not forget to input the emotion you are feeling, please do it now !"},
+                {"NoEmotionButton", "RAZ"},
 		// END OF MATERIAL TO LOCALIZE
 	};
 }

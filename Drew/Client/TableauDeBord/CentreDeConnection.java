@@ -594,22 +594,26 @@ private PrintWriter errStream = new PrintWriter( errString );
   	* Send a message to the GrandSioux server
   	* @param event message to be sent
   	*/
-	private void send2server( XMLTree event, Duration d ) throws IOException {
+	private void send2server( XMLTree event, Duration d) throws IOException {
 		XMLTree x = new XMLTree( "event-request" );
 		x.setContents( event );
 
 		if( Config.getMark() != null ) { 
 			x.setAttribute( "mark", Config.getMark() ); 
 		}
-		if( d != null) {
-			//x.insert( new XMLTree("time", new XMLTree("duration", d) ) );
-                        //GC: the line above was replaced by the following lines to add the
-                        //time (the client time) information of the end of the event
-                        XMLTree timeTree = new XMLTree("time");
-                        timeTree.add(new XMLTree("clientdate", d.getStampTime()));
-                        timeTree.add(new XMLTree("duration", d));
-                        x.insert(timeTree);                        
+                
+                //GC: This section was modified to include:
+                // - the clientdate : approax date at which the client has send the message
+                // - the clientdurationstamp: date at which the event was registered by the module (when duration is used)
+                //Originaly: ony the duration was added in the case it existed: x.insert( new XMLTree("time", new XMLTree("duration", d) ) );
+		XMLTree timeTree = new XMLTree("time");
+                if( d != null) {
+                        timeTree.add(new XMLTree("clientdurationstamp", d.getStampTime()));
+                        timeTree.add(new XMLTree("duration", d));                        
 		}
+                timeTree.add(new XMLTree("clientdate", new Drew.Util.Date()));
+                x.insert(timeTree);
+                        
                 //else
                 //        x.insert( new XMLTree("time", new XMLTree("clientdate", 321) ) );
 
