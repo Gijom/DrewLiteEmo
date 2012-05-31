@@ -404,7 +404,7 @@ public class GEW extends DefaultCooperativeModule implements ActionListener, Com
     @Override
     public void stop() {
         //Just stop the timer
-        if(timeTimer != 0)
+        if(timeTimer != 0 && messageTimer != null)
             messageTimer.stop();
     }
     

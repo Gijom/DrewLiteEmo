@@ -348,9 +348,7 @@ Thread mainThread = null;
 
   	public void destroy() {
 		if( Config.getDebug() ) { System.err.println("CentreDeConnexion : destroy"); }
-		System.err.println("ok1");
 		quitterModules();
-		System.err.println("ok2");
 		// close error window 
 		if( errFrame != null ) { errFrame.dispose(); errFrame=null; }
 		mainThread=null;
@@ -432,9 +430,9 @@ private PrintWriter errStream = new PrintWriter( errString );
 		}
 
     		try {
-        		nom = texte;    
+        		nom = texte;  
         		if((nom == null) || nom.equals("")) {
-            			// Please indicate your name
+                                // Please indicate your name
             			if( frame_tab_de_bord != null) {
 					frame_tab_de_bord.messageDeliver(comment.format("msg001"));
             				reconnection();
@@ -446,10 +444,10 @@ private PrintWriter errStream = new PrintWriter( errString );
 					}
         		}
         		else {
-					// starting access to the server
-					// send expected informations
-					// message "contacting server"
-					if( frame_tab_de_bord != null) {
+				// starting access to the server
+				// send expected informations
+				// message "contacting server"
+				if( frame_tab_de_bord != null) {
 						frame_tab_de_bord.messageDeliver(comment.format("msg002"));
 				}
 				else {
@@ -493,8 +491,7 @@ private PrintWriter errStream = new PrintWriter( errString );
 				);
 
 				//PJ 05232003 module can now do network
-
-				modules.init(); 
+				modules.init();
 				getState();
 				modules.start();
         		}

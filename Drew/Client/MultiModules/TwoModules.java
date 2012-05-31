@@ -119,7 +119,7 @@ public class TwoModules extends Panel implements CooperativeModule {
                     if (ratioModA >= 1)
                         ratioModA = 0.5;
                 }
-                catch(Exception e) //null string, or not integer format
+                catch(Exception e) //null string, or not float format
                 {
                     ratioModA = 0.5;
                 }
@@ -163,8 +163,8 @@ public class TwoModules extends Panel implements CooperativeModule {
 		}
 		add((Panel)modA); modA.init();
 		add((Panel)modB); modB.init();
-	}
-  
+        }
+
 	/**
         * modules are started
         */

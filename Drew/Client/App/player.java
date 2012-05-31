@@ -48,8 +48,7 @@ public boolean issubprogram = false;
 		app.stop(); 
 		frame.dispose(); 
 		app.destroy();
-		System.err.println("ok3");
-			System.exit(0);
+        	System.exit(0);
 	} 
 	public void windowDeactivated(WindowEvent e) {} 
 	public void windowDeiconified(WindowEvent e) {} 

@@ -12,10 +12,11 @@ drew.Xgraph.interactive=true
 drew.graph.participate=true
 
 drew.multi.orientation=horizontal
-drew.multi.modules=grapheur,GEW
-drew.multi.ratioFirstModule=0.8
+drew.multi.modules=grapheur,EmotionAwareness
+drew.multi.ratioFirstModule=0.95
+drew.multi.fullScreen=true
 
-drew.GEW.timeInput=5
+drew.GEW.timeInput=420
 drew.GEW.dispMessageBegin=true
 drew.GEW.scalesPoints=5
 drew.GEW.nbEmotions=20
@@ -30,7 +31,7 @@ drew.GEW.emotion8=Surpris
 drew.GEW.emotion9=Irrite
 drew.GEW.emotion10=Desireux
 drew.GEW.emotion11=Anxieux
-drew.GEW.emotion12=Instatisfait
+drew.GEW.emotion12=Insatisfait
 drew.GEW.emotion13=Indecis
 drew.GEW.emotion14=Decu
 drew.GEW.emotion15=Blesse
@@ -41,8 +42,34 @@ drew.GEW.emotion19=Reconnaissant
 drew.GEW.emotion20=Soulage
 
 
-drew.GraphGEW=false
+drew.EmotionAwareness.timeInput=420
+drew.EmotionAwareness.dispMessageBegin=true
+drew.EmotionAwareness.nbPosEmotions=10
+drew.EmotionAwareness.posEmotion1=Ravi
+drew.EmotionAwareness.posEmotion2=Concentr\u00e9
+drew.EmotionAwareness.posEmotion3=Int\u00e9ress\u00e9
+drew.EmotionAwareness.posEmotion4=Satisfait
+drew.EmotionAwareness.posEmotion5=Empathique
+drew.EmotionAwareness.posEmotion6=Confiant
+drew.EmotionAwareness.posEmotion7=Amus\u00e9
+drew.EmotionAwareness.posEmotion8=D\u00e9tendu
+drew.EmotionAwareness.posEmotion9=Reconnaissant
+drew.EmotionAwareness.posEmotion10=Soulag\u00e9
+drew.EmotionAwareness.nbNegEmotions=10
+drew.EmotionAwareness.negEmotion1=Stress\u00e9
+drew.EmotionAwareness.negEmotion2=Enerv\u00e9
+drew.EmotionAwareness.negEmotion3=Surpris
+drew.EmotionAwareness.negEmotion4=Irrit\u00e9
+drew.EmotionAwareness.negEmotion5=Envieux
+drew.EmotionAwareness.negEmotion6=Anxieux
+drew.EmotionAwareness.negEmotion7=Insatisfait
+drew.EmotionAwareness.negEmotion8=Confus
+drew.EmotionAwareness.negEmotion9=Frustr\u00e9
+drew.EmotionAwareness.negEmotion10=Lass\u00e9
+
+
 drew.GEW=false
+drew.EmotionAwareness=false
 drew.chat=false
 drew.whiteboard=false
 drew.feutricolore=false

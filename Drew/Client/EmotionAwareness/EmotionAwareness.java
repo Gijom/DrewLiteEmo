@@ -43,6 +43,7 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
     static final String REFRESH_BUTTON_ACTION = "Refresh";
     static final String MESSAGE_CODE = "InputMessage";
     static final String EMOTION_CODE = "Emotion";    
+    static final String STARTED_CODE = "ModuleStarted";    
     static final String NOEMOTION_CODE = "NoEmotion"; //should not be an empty string
     static final int MAX_EMOTIONS = 10; //Maximum number of emotions (for either positive or negative emotions)
     static final ArrayList<String> DEFAULT_POSITIVE_EMOTIONS =  //Default list of emotions if the config file is bad
@@ -251,6 +252,10 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
         refreshButton.setAlignmentX(CENTER_ALIGNMENT);
         this.add(refreshButton);
         
+    }
+
+    @Override
+    public void start()    {
         //Create the timer with the proper time
         //Lunch the message Timer: start counting the time up to the moment an emotion will be entered
         if(timeTimer != 0)
@@ -261,9 +266,15 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
             messageTimer.start();
             if(dispMessageBegin) //Simulate event to display the first message immediately
                 this.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, messageTimer.getActionCommand()));
-        }        
-    }
+        }
+        
+        //Send a message to notify that the module has started
+        eventToSend = new XMLTree( getCode());
+        eventToSend.setAttribute("Type", STARTED_CODE);
+        sendServer(eventToSend);
 
+    }
+    
     private JPanel createEmotionTextBag(String panelTitle, ArrayList<ResizableTextField> createdFields, Color backColor, Color textColor, boolean editable) {
         //Create the panel of self-reported emotions (containing mainly three TextFields)
         JPanel emotionPanel = new JPanel();
@@ -322,8 +333,9 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
     
     @Override
     public void moduleMessageDeliver(String user, XMLTree data) {
-        // TODO Auto-generated method stub
-        //System.out.println(data);
+        
+        if(Config.getDebug())
+            System.out.println("Message received " + data);
         
         //If this is an EmotionAwareness message
        	if( getCode().equals( data.tag() ) ) {
@@ -365,7 +377,11 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
     public void actionPerformed(ActionEvent ev) {
 
         String action = ev.getActionCommand();
-        System.out.println(action);
+        
+        if(Config.getDebug())
+            System.out.println("Received action: " + action);       
+        
+        
         if(action != null) {
             if(action.equals(FIELD_VALIDATED_ACTION)) //An emotion has been entered in the field
             {
@@ -419,7 +435,7 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
             }
             else if(action.equals(REFRESH_BUTTON_ACTION)) { //The refresh button has been pressed
                 
-                //Just send an emotion message with the name of the button that was pressed
+                //Just send an emotion message with the no emotion code
                 sendMessageEmotion(NOEMOTION_CODE);
                 
                 //Cancel the timer and restart it to check for next delay between emotional information
@@ -467,7 +483,7 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
     @Override
     public void stop() {
         //Just stop the timer
-        if(timeTimer != 0)
+        if(timeTimer != 0 && messageTimer != null)
             messageTimer.stop();
     }
     
