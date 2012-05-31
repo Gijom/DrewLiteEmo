@@ -38,7 +38,7 @@ public class GEW_fr extends ListResourceBundle {
 
 	static final Object[][] contents = {
 		// LOCALIZE THIS
-		{"WindowTitle", "Outil d'awarness emotionel basé sur la GEW"},
+		{"WindowTitle", "Outil d'awarness emotionel bas\u00e9 sur la GEW"},
                 {"InputMessage", "N'oubliez d'entrer l'\u00e9motion que vous ressentez, faites le maintenant !"},
                 {"NoEmotionButton", "RAZ"},
 		// END OF MATERIAL TO LOCALIZE

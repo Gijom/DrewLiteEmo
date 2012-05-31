@@ -746,8 +746,7 @@ public abstract class Argument
 				// Utilise pour un argument sans contradictions
 				dessineRectangle(g,x,y,width,height,offset,c,bg);
 				break;
-			case OVALE: 
-				System.err.println("Largeur, hauteur = "+width + " "+height);
+			case OVALE: 				
 				// Utilise pour une liaison sans contradiction
 				dessineOvale(g,x,y,width,height,offset,c,bg);
 				break;

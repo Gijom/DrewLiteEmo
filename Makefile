@@ -59,6 +59,7 @@ PACKAGES=	Drew.Util \
 		Drew.Client.Util.XML \
 		Drew.Client.Util.XMLSocket \
 		Drew.Client.GEW \
+		Drew.Client.EmotionAwareness \
 		Drew.Client.Chat \
 		Drew.Client.TableauDeBord \
 		Drew.Client.TextBoard \
@@ -98,6 +99,8 @@ XMLMPFILES=	$(wildcard Drew/Util/XMLmp/*.java )
 SCHEMEFILES=	$(wildcard Sch/*.java )
 
 GEWFILES=	$(wildcard Drew/Client/GEW/*.java)
+
+EMOTIONAWARENESSFILES = $(wildcard Drew/Client/EmotionAwareness/*.java)
 
 CHATFILES=	$(wildcard Drew/Client/Chat/*.java)
 
@@ -160,6 +163,8 @@ scheme: $(SCHEMEFILES:.java=.class)
 
 gew: cutil $(GEWFILES:.java=.class)
 
+emotionawareness: cutil $(EMOTIONAWARENESSFILES:.java=.class)
+
 chat: cutil $(CHATFILES:.java=.class) 
 
 feu: cutil $(FEUFILES:.java=.class) 
@@ -184,7 +189,7 @@ simpleawareness: cutil $(AWARENESSFILES:.java=.class)
 
 imageviewer: cutil $(IMAGEVIEWERFILES:.java=.class)
 
-client: cutil gew chat feu grapheur rejoueur whiteboard text tableau multi dict misc alex vote app viewboard simpleawareness imageviewer
+client: cutil gew emotionawareness chat feu grapheur rejoueur whiteboard text tableau multi dict misc alex vote app viewboard simpleawareness imageviewer
 
 alex: cutil $(ALEXFILE:.java=.class)
 

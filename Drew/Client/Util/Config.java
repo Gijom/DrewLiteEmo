@@ -60,6 +60,7 @@ static private String T[][] = {
 	{"vote",        "Vote",         "Drew.Client.Vote.Vote"},
 	{"awareness",   "Awareness",    "Drew.Client.SimpleAwareness.SimpleAwareness"},
 	{"imageviewer",   "Image Viewer",    "Drew.Client.ImageViewer.ImageViewer"},
+        {"EmotionAwareness", "EmotionAwareness", "Drew.Client.EmotionAwareness.EmotionAwareness"},
 };
 
 /**
