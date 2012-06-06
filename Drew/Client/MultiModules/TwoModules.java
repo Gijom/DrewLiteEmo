@@ -28,6 +28,8 @@ import java.util.*;
 import java.awt.*;
 import Drew.Util.XMLmp.*;
 import Drew.Client.Util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -61,6 +63,7 @@ public class TwoModules extends Panel implements CooperativeModule {
 
   private boolean horizontal;
   private double ratioModA;
+  private boolean isfullScreen;
   
   	/**
   	* Constructeur de la fenetre de chat: definition de l'environnement graphique
@@ -84,6 +87,7 @@ public class TwoModules extends Panel implements CooperativeModule {
   	/**
 	 *
   	 */
+    @Override
 	public void constructor(Communication cdc) {
         	central_applet=cdc;
 
@@ -123,18 +127,32 @@ public class TwoModules extends Panel implements CooperativeModule {
                 {
                     ratioModA = 0.5;
                 }
+
+                // Full screen is mandatory
+		dummy = central_applet.getParameter("drew.multi.fullScreen");		
+                try
+                {
+                    isfullScreen = dummy.equalsIgnoreCase("true");
+                }
+                catch(Exception e) //null string, or not float format
+                {
+                    isfullScreen = false;
+                }
 	}
 
   	/** overload the Component method */
+    @Override
 	public Dimension getPreferredSize() {
-		return new Dimension(800,600);
+                return new Dimension(800,600);
 	}
 
   	/** CooperativeModule interface */
+    @Override
         public String getTitle() {
                 return "Drew modules";
         }
 
+    @Override
   	public void init()
 	{
         	// set up graphical interface
@@ -168,14 +186,26 @@ public class TwoModules extends Panel implements CooperativeModule {
 	/**
         * modules are started
         */
+    @Override
         public void start() {
-		modA.start();
+                
+                modA.start();
 		modB.start();
+                
+                //Set the frame as not resizable and fullscreen if requested
+                //Done here cause it is impossible to get the Frame before
+                if((getParent() != null) && (getParent() instanceof Frame)) {
+                    Frame moduleFrame = (Frame) getParent();
+                    moduleFrame.setExtendedState(moduleFrame.getExtendedState() | Frame.MAXIMIZED_BOTH);
+                }
+
+                
         }
 
         /**
         * stop modules
         */
+    @Override
         public void stop() {
 		modA.stop();
 		modB.stop();
@@ -184,6 +214,7 @@ public class TwoModules extends Panel implements CooperativeModule {
         /**
         * clear data from modules
         */
+    @Override
         public void clear() {
 		modA.clear();
 		modB.clear();
@@ -192,6 +223,7 @@ public class TwoModules extends Panel implements CooperativeModule {
         /**
         * destroy modules
         */
+    @Override
         public void destroy() {
 		stop();
 	}
@@ -199,6 +231,7 @@ public class TwoModules extends Panel implements CooperativeModule {
         /**
         * Return string id fo this module
         */
+    @Override
         public String getCode() {
 		return CODE;
 	}
@@ -206,6 +239,7 @@ public class TwoModules extends Panel implements CooperativeModule {
         /**
         * Accept messages for each embeded modules
         */
+    @Override
         public boolean messageFilter(XMLTree data) {
                 return 
 			modA.messageFilter(data) || modB.messageFilter(data) ;
@@ -214,6 +248,7 @@ public class TwoModules extends Panel implements CooperativeModule {
         /**
         * Deliver messages for each embeded modules
         */
+    @Override
         public void messageDeliver(String user, XMLTree data) {
 		if( modA.messageFilter(data) ) modA.messageDeliver(user, data);
 		if( modB.messageFilter(data) ) modB.messageDeliver(user, data);

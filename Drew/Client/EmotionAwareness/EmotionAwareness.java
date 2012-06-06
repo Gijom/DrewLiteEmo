@@ -77,7 +77,7 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
     ArrayList<ResizableTextField> textFieldsOthersEmo = new ArrayList<ResizableTextField>();
     String lastEmotionEntered = "";
     boolean emotionValidated = false;
-    
+    boolean enableEAT = true;
     
     public EmotionAwareness() {
         super();
@@ -182,6 +182,12 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
         result = central_applet.getParameter("EmotionAwareness.dispMessageBegin");
         if(result != null )
             dispMessageBegin = result.equalsIgnoreCase("true");
+
+        //Check if the EAT should be enabled or not
+        result = central_applet.getParameter("EmotionAwareness.enabled");
+        if( result != null )
+            enableEAT = !result.equalsIgnoreCase("false");
+
         
         //Add a fake user
         addUser("nobody"); //That is to keep color consistency with the Grapheur
@@ -218,8 +224,16 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
         Drew.Util.Locale language = new Drew.Util.Locale( "Drew.Locale.Client.EmotionAwareness", Config.getLocale() );              
         
         //Create the two panels for the display of emotions and add in a horizontal panel
-        JPanel selfEmoDisplayPanel = createEmotionTextBag(language.getString("SelfEmotionsTitle"), textFieldsSelfEmo, SELF_COLOR, SELF_TEXT_COLOR, true); //TODO change by a locale
-        JPanel othersEmoDisplayPanel = createEmotionTextBag(language.getString("OthersEmotionsTitle"), textFieldsOthersEmo, OTHER_COLOR, OTHER_TEXT_COLOR, false); //TODO change by a locale
+        JPanel selfEmoDisplayPanel;
+        if(enableEAT)
+            selfEmoDisplayPanel = createEmotionTextBag(language.getString("SelfEmotionsTitle"), textFieldsSelfEmo, SELF_COLOR, SELF_TEXT_COLOR, true);
+        else
+            selfEmoDisplayPanel = createEmotionTextBag("", textFieldsSelfEmo, SELF_COLOR, SELF_TEXT_COLOR, true);
+        JPanel othersEmoDisplayPanel;
+        if(enableEAT)
+            othersEmoDisplayPanel = createEmotionTextBag(language.getString("OthersEmotionsTitle"), textFieldsOthersEmo, OTHER_COLOR, OTHER_TEXT_COLOR, false);
+        else
+            othersEmoDisplayPanel = createEmotionTextBag("", textFieldsOthersEmo, OTHER_COLOR, OTHER_TEXT_COLOR, false);
         JPanel emoDisplayPanel = new JPanel();
         emoDisplayPanel.setLayout(new BoxLayout(emoDisplayPanel, BoxLayout.PAGE_AXIS));
         emoDisplayPanel.add(selfEmoDisplayPanel);
@@ -228,30 +242,42 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
         
         //Create the two button panels and add then vertically to a single one
         JPanel posEmotionsPanel = createButtonBag(posEmotions);
-        posEmotionsPanel.setBorder(BorderFactory.createTitledBorder(language.getString("PosButtonsTitle")));
+        if(enableEAT)
+            posEmotionsPanel.setBorder(BorderFactory.createTitledBorder(language.getString("PosButtonsTitle")));
+        else
+            posEmotionsPanel.setBorder(BorderFactory.createTitledBorder(""));
         JPanel negEmotionsPanel = createButtonBag(negEmotions);
-        negEmotionsPanel.setBorder(BorderFactory.createTitledBorder(language.getString("NegButtonsTitle")));
-        JPanel emoButtonsPanel = new JPanel();
+        if(enableEAT)
+            negEmotionsPanel.setBorder(BorderFactory.createTitledBorder(language.getString("NegButtonsTitle")));
+        else
+            negEmotionsPanel.setBorder(BorderFactory.createTitledBorder(""));
+        JPanel emoButtonsPanel = new JPanel();        
         emoButtonsPanel.setLayout(new BoxLayout(emoButtonsPanel, BoxLayout.LINE_AXIS));
         emoButtonsPanel.add(Box.createVerticalGlue());
         emoButtonsPanel.add(posEmotionsPanel);
         emoButtonsPanel.add(Box.createVerticalGlue());
         emoButtonsPanel.add(negEmotionsPanel);
-        emoButtonsPanel.add(Box.createVerticalGlue());
+        emoButtonsPanel.add(Box.createVerticalGlue());        
+        emoButtonsPanel.setEnabled(enableEAT);
         
         //Add all the stuff to the Drew module and set the Layout correctly
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         this.add(emoDisplayPanel);
         this.add(emoButtonsPanel);
         
-        //Finally add the refresh button at the end
-        JButton refreshButton = new JButton(language.getString("RefreshButtonTitle"));
+        //Finally add the refresh (no Emotion) button at the end
+        JButton refreshButton;
+        if(enableEAT) //normal text
+            refreshButton = new JButton(language.getString("RefreshButtonTitle"));
+        else //empty text but of the same size
+            refreshButton = new JButton(createFakeString(language.getString("RefreshButtonTitle").length()));
         refreshButton.setActionCommand(REFRESH_BUTTON_ACTION);
         refreshButton.addActionListener(this);
         refreshButton.setMaximumSize(new Dimension(Short.MAX_VALUE, Short.MAX_VALUE));
         refreshButton.setAlignmentX(CENTER_ALIGNMENT);
+        refreshButton.setEnabled(enableEAT);
         this.add(refreshButton);
-        
+        this.setEnabled(enableEAT);
     }
 
     @Override
@@ -300,9 +326,11 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
             newField.setHorizontalAlignment(ResizableTextField.CENTER);
             newField.setMinimumSize(newField.getPreferredSize());
             newField.setMaximumSize(new Dimension(Short.MAX_VALUE*2, Short.MAX_VALUE*2));
+            newField.setEnabled(enableEAT);
             createdFields.add(newField);
-            emotionPanel.add(newField);            
+            emotionPanel.add(newField);      
         }
+        emotionPanel.setEnabled(enableEAT);
         return emotionPanel;
     }
     
@@ -310,12 +338,19 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.PAGE_AXIS));
         for(int i=0;i < buttonsTitles.size();i++) {
-            JButton newButton = new JButton(buttonsTitles.get(i));
+            JButton newButton;
+            if(enableEAT) //normal text
+                newButton = new JButton(buttonsTitles.get(i));
+            else //empty text
+                newButton = new JButton(createFakeString(buttonsTitles.get(i).length()));
+            
             newButton.addActionListener(this);
             newButton.setActionCommand(BUTTON_PRESS_ACTION);
             newButton.setMaximumSize(new Dimension(Short.MAX_VALUE, Short.MAX_VALUE));
-            buttonsPanel.add(newButton);            
+            newButton.setEnabled(enableEAT);
+            buttonsPanel.add(newButton);   
         }
+        buttonsPanel.setEnabled(enableEAT);
         return buttonsPanel;
     }
     
@@ -515,4 +550,12 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
         currentField.setBackground(SELF_COLOR);
         currentField.setForeground(SELF_TEXT_COLOR);
     }
+    
+    private String createFakeString(int times) {
+        StringBuilder ret = new StringBuilder();
+        for(int i = 0;i < times;i++) ret.append("L");
+        return ret.toString();
+}
+    
+    
 }
