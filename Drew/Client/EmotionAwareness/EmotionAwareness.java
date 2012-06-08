@@ -8,6 +8,7 @@ import Drew.Client.Util.Communication;
 import Drew.Client.Util.DefaultCooperativeModule;
 import Drew.Util.XMLmp.XMLTree;
 import Drew.Client.Util.Config;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -30,14 +31,15 @@ import javax.swing.Box;
  */
 public class EmotionAwareness extends DefaultCooperativeModule implements ActionListener, FocusListener {
 
-    //constants    
+    //constants
     static final String CODE = "EmotionAwareness"; //Default code of the module
     static final int NB_TIME_EMOTIONS = 3; //Number of past + current emotions to display
     static final Color SELF_COLOR = Color.green; //Color for the fields concerning self emotions
     static final Color OTHER_COLOR = Color.blue; //Color for the fields concerning others emotions
     static final Color SELF_TEXT_COLOR = Color.black; //Color for the fields concerning self emotions
     static final Color OTHER_TEXT_COLOR = Color.white; //Color for the fields concerning others emotions
-    
+    static final String EMPTYCARD = "EmptyCard"; //Code to identify the Empty card (for disabled EAT)
+    static final String EATCARD = "EATCard"; //Code to identify the Eat Card    
     static final String BUTTON_PRESS_ACTION = "ButtonPress";
     static final String FIELD_VALIDATED_ACTION = "FieldValidated";
     static final String REFRESH_BUTTON_ACTION = "Refresh";
@@ -78,7 +80,6 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
     String lastEmotionEntered = "";
     boolean emotionValidated = false;
     boolean enableEAT = true;
-    
     public EmotionAwareness() {
         super();
     }
@@ -221,63 +222,63 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
         super.init();
         
         //Create the drew locale system for translation to create components with the correct names
-        Drew.Util.Locale language = new Drew.Util.Locale( "Drew.Locale.Client.EmotionAwareness", Config.getLocale() );              
+        Drew.Util.Locale language = new Drew.Util.Locale( "Drew.Locale.Client.EmotionAwareness", Config.getLocale() );
         
-        //Create the two panels for the display of emotions and add in a horizontal panel
-        JPanel selfEmoDisplayPanel;
-        if(enableEAT)
-            selfEmoDisplayPanel = createEmotionTextBag(language.getString("SelfEmotionsTitle"), textFieldsSelfEmo, SELF_COLOR, SELF_TEXT_COLOR, true);
-        else
-            selfEmoDisplayPanel = createEmotionTextBag("", textFieldsSelfEmo, SELF_COLOR, SELF_TEXT_COLOR, true);
-        JPanel othersEmoDisplayPanel;
-        if(enableEAT)
-            othersEmoDisplayPanel = createEmotionTextBag(language.getString("OthersEmotionsTitle"), textFieldsOthersEmo, OTHER_COLOR, OTHER_TEXT_COLOR, false);
-        else
-            othersEmoDisplayPanel = createEmotionTextBag("", textFieldsOthersEmo, OTHER_COLOR, OTHER_TEXT_COLOR, false);
+        //Create the two panels for the display of emotions and add in an vertical panel
+        //First create the two panels
+        JPanel selfEmoDisplayPanel = createEmotionTextBag(language.getString("SelfEmotionsTitle"), textFieldsSelfEmo, SELF_COLOR, SELF_TEXT_COLOR, true);
+        JPanel othersEmoDisplayPanel = createEmotionTextBag(language.getString("OthersEmotionsTitle"), textFieldsOthersEmo, OTHER_COLOR, OTHER_TEXT_COLOR, false);
+        //Combine both in one
         JPanel emoDisplayPanel = new JPanel();
         emoDisplayPanel.setLayout(new BoxLayout(emoDisplayPanel, BoxLayout.PAGE_AXIS));
         emoDisplayPanel.add(selfEmoDisplayPanel);
         emoDisplayPanel.add(othersEmoDisplayPanel);
         
         
-        //Create the two button panels and add then vertically to a single one
+        //Create the two button panels and add then horizontaly to a single one
+        //First create the two buttons panel and their borders
         JPanel posEmotionsPanel = createButtonBag(posEmotions);
-        if(enableEAT)
-            posEmotionsPanel.setBorder(BorderFactory.createTitledBorder(language.getString("PosButtonsTitle")));
-        else
-            posEmotionsPanel.setBorder(BorderFactory.createTitledBorder(""));
+        posEmotionsPanel.setBorder(BorderFactory.createTitledBorder(language.getString("PosButtonsTitle")));
         JPanel negEmotionsPanel = createButtonBag(negEmotions);
-        if(enableEAT)
-            negEmotionsPanel.setBorder(BorderFactory.createTitledBorder(language.getString("NegButtonsTitle")));
-        else
-            negEmotionsPanel.setBorder(BorderFactory.createTitledBorder(""));
-        JPanel emoButtonsPanel = new JPanel();        
+        negEmotionsPanel.setBorder(BorderFactory.createTitledBorder(language.getString("NegButtonsTitle")));
+        //Combine the buttons panels
+        JPanel emoButtonsPanel = new JPanel();
         emoButtonsPanel.setLayout(new BoxLayout(emoButtonsPanel, BoxLayout.LINE_AXIS));
         emoButtonsPanel.add(Box.createVerticalGlue());
         emoButtonsPanel.add(posEmotionsPanel);
         emoButtonsPanel.add(Box.createVerticalGlue());
         emoButtonsPanel.add(negEmotionsPanel);
         emoButtonsPanel.add(Box.createVerticalGlue());        
-        emoButtonsPanel.setEnabled(enableEAT);
         
-        //Add all the stuff to the Drew module and set the Layout correctly
-        this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-        this.add(emoDisplayPanel);
-        this.add(emoButtonsPanel);
-        
-        //Finally add the refresh (no Emotion) button at the end
-        JButton refreshButton;
-        if(enableEAT) //normal text
-            refreshButton = new JButton(language.getString("RefreshButtonTitle"));
-        else //empty text but of the same size
-            refreshButton = new JButton(createFakeString(language.getString("RefreshButtonTitle").length()));
+        //Create two cards to deal with the possibly disabled EAT
+        //The first card will contain the EAT and the second an empty panel
+        //If the EAT is disabled the empty panel will be displayed
+        //First create the EAT card and add all the panel created so far
+        JPanel eatCard = new JPanel();
+        eatCard.setLayout(new BoxLayout(eatCard, BoxLayout.PAGE_AXIS));
+        eatCard.add(emoDisplayPanel);
+        eatCard.add(emoButtonsPanel);
+        //Add the refresh (no Emotion) button at the end of this card
+        JButton refreshButton = new JButton(language.getString("RefreshButtonTitle"));
         refreshButton.setActionCommand(REFRESH_BUTTON_ACTION);
         refreshButton.addActionListener(this);
         refreshButton.setMaximumSize(new Dimension(Short.MAX_VALUE, Short.MAX_VALUE));
         refreshButton.setAlignmentX(CENTER_ALIGNMENT);
-        refreshButton.setEnabled(enableEAT);
-        this.add(refreshButton);
-        this.setEnabled(enableEAT);
+        eatCard.add(refreshButton);
+        //Second create the Empty card        
+        JPanel emptyCard = new JPanel();
+        
+        //Add the different card to the current panel using a card layout
+        CardLayout cards = new CardLayout();
+        this.setLayout(cards);
+        this.add(eatCard, EATCARD);
+        this.add(emptyCard, EMPTYCARD);
+        
+        //Choose which card to use
+        if(enableEAT)
+            cards.show(this, EATCARD);
+        else
+            cards.show(this, EMPTYCARD);
     }
 
     @Override
@@ -298,7 +299,6 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
         eventToSend = new XMLTree( getCode());
         eventToSend.setAttribute("Type", STARTED_CODE);
         sendServer(eventToSend);
-
     }
     
     private JPanel createEmotionTextBag(String panelTitle, ArrayList<ResizableTextField> createdFields, Color backColor, Color textColor, boolean editable) {
@@ -326,11 +326,9 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
             newField.setHorizontalAlignment(ResizableTextField.CENTER);
             newField.setMinimumSize(newField.getPreferredSize());
             newField.setMaximumSize(new Dimension(Short.MAX_VALUE*2, Short.MAX_VALUE*2));
-            newField.setEnabled(enableEAT);
             createdFields.add(newField);
             emotionPanel.add(newField);      
         }
-        emotionPanel.setEnabled(enableEAT);
         return emotionPanel;
     }
     
@@ -339,18 +337,13 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
         buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.PAGE_AXIS));
         for(int i=0;i < buttonsTitles.size();i++) {
             JButton newButton;
-            if(enableEAT) //normal text
-                newButton = new JButton(buttonsTitles.get(i));
-            else //empty text
-                newButton = new JButton(createFakeString(buttonsTitles.get(i).length()));
-            
+            newButton = new JButton(buttonsTitles.get(i));
             newButton.addActionListener(this);
             newButton.setActionCommand(BUTTON_PRESS_ACTION);
             newButton.setMaximumSize(new Dimension(Short.MAX_VALUE, Short.MAX_VALUE));
-            newButton.setEnabled(enableEAT);
+            newButton.setMinimumSize(new Dimension(0, 0));
             buttonsPanel.add(newButton);   
         }
-        buttonsPanel.setEnabled(enableEAT);
         return buttonsPanel;
     }
     
@@ -550,12 +543,4 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
         currentField.setBackground(SELF_COLOR);
         currentField.setForeground(SELF_TEXT_COLOR);
     }
-    
-    private String createFakeString(int times) {
-        StringBuilder ret = new StringBuilder();
-        for(int i = 0;i < times;i++) ret.append("L");
-        return ret.toString();
-}
-    
-    
 }
