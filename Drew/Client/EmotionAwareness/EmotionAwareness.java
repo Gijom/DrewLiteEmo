@@ -46,6 +46,7 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
     static final String MESSAGE_CODE = "InputMessage";
     static final String EMOTION_CODE = "Emotion";    
     static final String STARTED_CODE = "ModuleStarted";    
+    static final String STOPPED_CODE = "ModuleStopped";    
     static final String NOEMOTION_CODE = "NoEmotion"; //should not be an empty string
     static final int MAX_EMOTIONS = 10; //Maximum number of emotions (for either positive or negative emotions)
     static final ArrayList<String> DEFAULT_POSITIVE_EMOTIONS =  //Default list of emotions if the config file is bad
@@ -510,6 +511,11 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
     
     @Override
     public void stop() {
+        //Send the message that the module is stoped
+        eventToSend = new XMLTree( getCode());
+        eventToSend.setAttribute("Type", STOPPED_CODE);
+        sendServer(eventToSend);
+        
         //Just stop the timer
         if(timeTimer != 0 && messageTimer != null)
             messageTimer.stop();
