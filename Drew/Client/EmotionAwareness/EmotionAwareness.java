@@ -280,6 +280,12 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
             cards.show(this, EATCARD);
         else
             cards.show(this, EMPTYCARD);
+        
+        //If the user is nobody than disable the EAT
+        if(getUsername().equals("nobody")) {
+                System.out.println("Big up nobody");
+                this.setEnabled(false);
+        }
     }
 
     @Override

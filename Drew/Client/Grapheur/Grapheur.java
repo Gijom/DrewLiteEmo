@@ -281,8 +281,8 @@ public class Grapheur
 			//deselectionner
 			currentUser.getUserLabel().setSelected(false);
 		}
-		if (u != null) {
-			u.getUserLabel().setSelected(true);
+		if (u != null && u.getUserLabel() != null) { //GC: added the u.getUserLabel() != null in the case nobody logs in
+                        u.getUserLabel().setSelected(true);                        
 			currentUser = u;
 		} else currentUser =null; 
 
