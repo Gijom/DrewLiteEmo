@@ -21,7 +21,7 @@ public class EmotionAwareness_fr extends ListResourceBundle{
 	static final Object[][] contents = {
 		// LOCALIZE THIS
 		{"WindowTitle", "Outil d'awarness \u00e9motionel"},
-                {"InputMessage", "N'oubliez d'entrer l'\u00e9motion que vous ressentez, faites le maintenant !"},
+                {"InputMessage", "N'oubliez pas d'entrer l'\u00e9motion que vous ressentez, faites le maintenant !"},
                 {"NegButtonsTitle", "Emotions n\u00e9gatives"},
                 {"PosButtonsTitle", "Emotions positives"},
                 {"SelfEmotionsTitle", "Tes \u00e9motions"},
