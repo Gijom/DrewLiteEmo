@@ -63,7 +63,10 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
     //A message is prompted every timeTimer (ms) to ask user for input
     Timer messageTimer;
     int timeTimer = 3000;
+    
+    //A message is prompted when started
     boolean dispMessageBegin = false;
+    String message = "";
     
     //Variable for DREW communication
     XMLTree eventToSend = null;
@@ -184,6 +187,13 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
         result = central_applet.getParameter("EmotionAwareness.dispMessageBegin");
         if(result != null )
             dispMessageBegin = result.equalsIgnoreCase("true");
+        
+        //Load the message
+        if(dispMessageBegin) {
+            result = central_applet.getParameter("EmotionAwareness.message");
+            if(result != null )
+                message = result;
+        }        
 
         //Check if the EAT should be enabled or not
         result = central_applet.getParameter("EmotionAwareness.enabled");
@@ -282,14 +292,17 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
             cards.show(this, EMPTYCARD);
         
         //If the user is nobody than disable the EAT
-        if(getUsername().equals("nobody")) {
-                System.out.println("Big up nobody");
+        if(getUsername().equals("nobody"))
                 this.setEnabled(false);
-        }
     }
 
     @Override
     public void start()    {
+        
+        //Simulate event to display the first message immediately
+        if(dispMessageBegin)
+            JOptionPane.showMessageDialog(null,message);
+ 
         //Create the timer with the proper time
         //Lunch the message Timer: start counting the time up to the moment an emotion will be entered
         if(timeTimer != 0)
@@ -298,8 +311,6 @@ public class EmotionAwareness extends DefaultCooperativeModule implements Action
             messageTimer.setRepeats(false);
             messageTimer.setActionCommand(MESSAGE_CODE);
             messageTimer.start();
-            if(dispMessageBegin) //Simulate event to display the first message immediately
-                this.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, messageTimer.getActionCommand()));
         }
         
         //Send a message to notify that the module has started
